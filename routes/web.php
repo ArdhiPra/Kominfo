@@ -11,8 +11,8 @@ Route::get('/test', function () {
     return view('test');
 });
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/login', function () {
+    return view('login');
 });
 
 // Dashbard
