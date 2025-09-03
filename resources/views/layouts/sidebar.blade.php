@@ -20,7 +20,7 @@
             </a>
         </li>
         <li>
-            <a href="{{ route('/login') }}" class="nav-link text-white">
+            <a href="{{ url('/login') }}" class="nav-link text-white">
                 <i class="bi bi-box-arrow-in-right me-2"></i> Login
             </a>
         </li>

@@ -22,12 +22,12 @@
         <form method="POST" action="{{ url('/login') }}">
             @csrf
             <div class="mb-3">
-                <label class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" placeholder="username@gmail.com" required>
+                <label class="form-label">Username</label>
+                <input type="text" name="username" class="form-control" placeholder="Masukkan Username" required>
             </div>
             <div class="mb-2">
                 <label class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                <input type="password" name="password" class="form-control" placeholder="Masukkkan Password" required>
             </div>
             <div class="text-end mb-3">
                 <a href="#" class="text-light small text-decoration-none">Forgot Password?</a>
@@ -36,7 +36,6 @@
         </form>
 
         <!-- Divider -->
-        >
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

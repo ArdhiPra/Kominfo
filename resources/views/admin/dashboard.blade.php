@@ -3,7 +3,7 @@
 @section('title', 'Beranda - Bidang PKL')
 
 @section('content')
-    <h1 class="text-center mb-4">Bidang PKL</h1>
+    <h1 class="text-center mb-4">ADMIN PKL</h1>
     <div class="row g-4">
 
         <!-- Card 1 - Sekretariat -->
