@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Beranda - Bidang PKL')
+@section('title', 'Beranda')
 
 @section('content')
     <h1 class="text-center mb-4">Bidang PKL</h1>
