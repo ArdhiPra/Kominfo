@@ -1,0 +1,118 @@
+/* Gunakan Roboto untuk seluruh body */
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+/* Heading lebih tebal */
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+}
+
+/* Card title */
+.card-title {
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Progress bar teks */
+.progress-bar {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Keterangan kecil */
+small {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    color: #666;
+}
+
+/* Sidebar Desktop */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; /* penuh tinggi layar */
+    width: 220px;
+    background-color: #212529;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.content {
+    margin-left: 240px;
+    padding: 1rem;
+}
+
+/* Mobile mode: hapus margin kiri */
+@media (max-width: 767.98px) {
+    .content {
+        margin-left: 0;
+    }
+}
+
+/* Biar button logout ikut gaya link */
+.sidebar .nav-link,
+.offcanvas-body .nav-link,
+.sidebar button.nav-link,
+.offcanvas-body button.nav-link {
+    color: #ffffff;
+    transition: all 0.2s ease-in-out;
+    border-radius: 6px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%; /* biar hover full selebar li */
+    text-align: left; /* biar teks rata kiri */
+    background: transparent;
+    border: none;
+}
+
+/* Hover effect untuk link & button */
+.sidebar .nav-link:hover,
+.offcanvas-body .nav-link:hover,
+.sidebar button.nav-link:hover,
+.offcanvas-body button.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+    transform: translateX(4px);
+    cursor: pointer; /* biar terasa bisa diklik */
+}
+
+/* Aktif */
+.sidebar .nav-link.active,
+.offcanvas-body .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+    font-weight: 600;
+    color: #fff !important;
+}
+
+/* Mobile Sweert Alert */
+/* Ukuran popup lebih kecil */
+.swal-logout-popup {
+    width: 280px !important;
+    padding: 1rem !important;
+    border-radius: 12px !important;
+}
+
+/* Judul lebih kecil biar pas di layar mobile */
+.swal-logout-title {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+}
+
+/* Tombol confirm lebih kecil */
+.swal-logout-confirm {
+    padding: 6px 12px !important;
+    font-size: 13px !important;
+}
+
+/* Tombol cancel lebih kecil */
+.swal-logout-cancel {
+    padding: 6px 12px !important;
+    font-size: 13px !important;
+}

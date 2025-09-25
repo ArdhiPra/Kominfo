@@ -3,108 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quota PKL</title>
+  <title>Sistem PKL</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    .quota-container {
-      max-width: 400px;
-      margin: auto;
-      border-radius: 15px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      padding: 20px;
-    }
-    .quota-header {
-      display: flex;
-      justify-content: space-between;
-      font-size: 14px;
-      margin-bottom: 8px;
-      color: #555;
-    }
-    .progress-bar {
-      background: #f0f0f0;
-      border-radius: 20px;
-      overflow: hidden;
-      height: 20px;
-      margin-bottom: 20px;
-      position: relative;
-    }
-    .progress {
-      background: linear-gradient(90deg, #FFD700, #FFC300);
-      height: 100%;
-      width: 60%; /* ubah sesuai persentase pemakaian */
-    }
-    .progress-label {
-      position: absolute;
-      left: 10px;
+    /* Sidebar Desktop */
+    .sidebar {
+      position: fixed;
       top: 0;
-      bottom: 0;
-      display: flex;
-      align-items: center;
-      font-size: 12px;
-      font-weight: bold;
-      color: #000;
+      left: 0;
+      height: 100vh;          /* penuh tinggi layar */
+      width: 220px;           /* lebar sidebar */
+      background-color: #212529;
+      padding: 1rem;
+      overflow-y: auto;       /* bisa scroll jika menu panjang */
     }
-    .progress-total {
-      position: absolute;
-      right: 10px;
-      top: 0;
-      bottom: 0;
-      display: flex;
-      align-items: center;
-      font-size: 12px;
-      font-weight: bold;
-      color: #555;
+
+    .content {
+      margin-left: 220px;     /* kasih jarak sama dengan sidebar */
+      padding: 1rem;
     }
-    .quota-stats {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
-    }
-    .stat {
-      flex: 1;
-      text-align: center;
-    }
-    .stat-value {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-    .stat-label {
-      font-size: 12px;
-      color: #666;
+
+    /* Mobile mode: hapus margin kiri */
+    @media (max-width: 767.98px) {
+      .content {
+        margin-left: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="quota-container">
-    <div class="quota-header">
-      <span>Remaining Quota</span>
-      <span style="color:red; cursor:pointer;">See Details</span>
+
+  <!-- Navbar untuk Mobile -->
+  <nav class="navbar navbar-dark bg-dark d-md-none">
+    <div class="container-fluid">
+      <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar">
+        <i class="bi bi-list"></i>
+      </button>
+      <span class="navbar-brand">Sistem PKL</span>
     </div>
-    <div class="progress-bar">
-      <div class="progress" style="width: 40%;"></div>
-      <div class="progress-label">10 Kuota</div>
-      <div class="progress-total">25 Kuota</div>
+  </nav>
+
+  <!-- Sidebar Desktop -->
+  <div class="sidebar d-none d-md-block text-white">
+    <h4 class="text-white">Sistem PKL</h4>
+    <hr class="text-secondary">
+    <ul class="nav flex-column">
+      <li class="nav-item"><a href="#" class="nav-link text-white"><i class="bi bi-house"></i> Beranda</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white"><i class="bi bi-info-circle"></i> Tentang</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white"><i class="bi bi-telephone"></i> Kontak</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white"><i class="bi bi-box-arrow-in-right"></i> Login</a></li>
+    </ul>
+  </div>
+
+  <!-- Sidebar Offcanvas (Mobile) -->
+  <div class="offcanvas offcanvas-start bg-dark text-white d-md-none" tabindex="-1" id="offcanvasSidebar">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Sistem PKL</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
     </div>
-    <div class="quota-stats">
-      <div class="stat">
-        <div class="stat-value">25</div>
-        <div class="stat-label">Jumlah Kuota PKL</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">15</div>
-        <div class="stat-label">Kuota Terpenuhi</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">10</div>
-        <div class="stat-label">Sisa Kuota</div>
-      </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a href="#" class="nav-link text-white"><i class="bi bi-house"></i> Beranda</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"><i class="bi bi-info-circle"></i> Tentang</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"><i class="bi bi-telephone"></i> Kontak</a></li>
+        <li class="nav-item"><a href="#" class="nav-link text-white"><i class="bi bi-box-arrow-in-right"></i> Login</a></li>
+      </ul>
     </div>
   </div>
+
+  <!-- Konten -->
+  <div class="content">
+    <h1>Dashboard PKL</h1>
+    <p>Isi konten di sini...</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p style="margin-bottom:1000px">Tambahkan konten panjang untuk uji scroll...</p>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

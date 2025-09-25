@@ -1,97 +1,84 @@
-.sidebar{
-    width: 250px;
-    height: 100vh;
+/* Gunakan Roboto untuk seluruh body */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Heading lebih tebal */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+/* Card title */
+.card-title {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Progress bar teks */
+.progress-bar {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Keterangan kecil */
+small {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #666;
+}
+
+/* Sidebar Desktop */
+.sidebar {
     position: fixed;
     top: 0;
     left: 0;
+    height: 100vh; /* penuh tinggi layar */
+    width: 220px;
+    background-color: #212529;
+    padding: 1rem;
+    overflow-y: auto;
 }
 
-.main-content {
-    margin-left: 250px; /* geser konten supaya tidak ketiban sidebar */
-    padding: 20px;
+.content {
+    margin-left: 240px;
+    padding: 1rem;
 }
 
-.card .progress {
-  border-radius: 10px;
-  overflow: hidden;
+/* Mobile mode: hapus margin kiri */
+@media (max-width: 767.98px) {
+    .content {
+        margin-left: 0;
+    }
 }
 
-.card .row .col {
-  margin-top: 10px;
+/* Sidebar link */
+.sidebar .nav-link,
+.offcanvas-body .nav-link {
+  color: #ffffff; 
+  transition: all 0.2s ease-in-out;
+  border-radius: 6px;
+  padding: 8px 12px;
 }
 
-.quota-container {
-  background: #fff;
-  border-radius: 10px;
-  padding: 12px 15px;
+/* Hover effect */
+.sidebar .nav-link:hover,
+.offcanvas-body .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* mirip YouTube sidebar */
+  color: #fff;
+  transform: translateX(4px); /* sedikit geser biar hidup */
 }
 
-.quota-container .progress-bar {
-      background: #f0f0f0;
-      border-radius: 20px;
-      overflow: hidden;
-      height: 20px;
-      margin-bottom: 20px;
-      position: relative;
+/* Aktif (optional, kalau mau kasih highlight halaman aktif) */
+.sidebar .nav-link.active,
+.offcanvas-body .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+  color: #fff;
 }
 
-.quota-container .progress-sekretariat {
-    background: linear-gradient(90deg, #0d6efd, #3a86ff); /* biru */
-    height: 100%;
-}
-
-.quota-container .progress-tik {
-    background: linear-gradient(90deg, #198754, #28a745); /* hijau */
-    height: 100%;
-}
-
-.quota-container .progress-persandian {
-    background: linear-gradient(90deg, #ffc107, #ffcd39); /* kuning */
-    height: 100%;
-}
-
-.quota-container .progress-statistik {
-    background: linear-gradient(90deg, #dc3545, #ff4d6d); /* merah */
-    height: 100%;
-}
-
-.quota-container .progress-pikp {
-    background: linear-gradient(90deg, #dc3545, #f87171); /* merah lebih soft */
-    height: 100%;
-}
-
-.quota-container .progress-label {
-      position: absolute;
-      left: 10px;
-      top: 0;
-      bottom: 0;
-      display: flex;
-      align-items: center;
-      font-size: 12px;
-      font-weight: bold;
-      color: #000;
-}
-
-.quota-container  .progress-total {
-      position: absolute;
-      right: 10px;
-      top: 0;
-      bottom: 0;
-      display: flex;
-      align-items: center;
-      font-size: 12px;
-      font-weight: bold;
-      color: #555;
-}
-
-.quota-container small {
-  font-size: 13px;
-}
-
-.quota-container .fw-bold {
-  color: #333;
-}
-
-.quota-container .text-muted {
-  color: #888 !important;
+.h1{
+  font-family:"Roboto",sans-serif;
 }

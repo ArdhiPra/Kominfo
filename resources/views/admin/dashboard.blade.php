@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.adminapp')
 
 @section('title', 'Dashboard Admin PKL')
 
@@ -7,32 +7,28 @@
     <h1 class="mb-4">Dashboard Admin PKL</h1>
 
     <!-- Ringkasan -->
-    <div class="row mb-4">
-        <div class="col-md-3">
-            <div class="card shadow-sm border-0 text-center p-3">
-                <h6>Jumlah Anak Magang</h6>
-                <h2>{{ $jumlahAnak }}</h2>
+    <div class="card shadow-sm border-0 mb-4">
+    <div class="card-body">
+        <div class="row text-center">
+            <div class="col-6 col-md-3 mb-3 mb-md-0">
+                <div class="fw-bold small text-muted">Jumlah Anak Magang</div>
+                <div class="h4 mb-0">{{ $jumlahAnak }}</div>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card shadow-sm border-0 text-center p-3">
-                <h6>Jumlah Kuota</h6>
-                <h2>{{ $jumlahKuota }}</h2>
+            <div class="col-6 col-md-3 mb-3 mb-md-0">
+                <div class="fw-bold small text-muted">Jumlah Kuota</div>
+                <div class="h4 mb-0">{{ $jumlahKuota }}</div>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card shadow-sm border-0 text-center p-3">
-                <h6>Terisi</h6>
-                <h2 class="text-success">{{ $terisiTotal }}</h2>
+            <div class="col-6 col-md-3 mb-3 mb-md-0">
+                <div class="fw-bold small text-muted">Terisi</div>
+                <div class="h4 text-success mb-0">{{ $terisiTotal }}</div>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card shadow-sm border-0 text-center p-3">
-                <h6>Sisa Kuota</h6>
-                <h2 class="text-danger">{{ $sisaTotal }}</h2>
+            <div class="col-6 col-md-3">
+                <div class="fw-bold small text-muted">Sisa Kuota</div>
+                <div class="h4 text-danger mb-0">{{ $sisaTotal }}</div>
             </div>
         </div>
     </div>
+</div>
 
     <!-- Bidang -->
     <div class="row g-4">
