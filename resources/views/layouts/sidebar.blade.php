@@ -1,17 +1,18 @@
 {{-- Navbar Mobile (hanya muncul di layar kecil) --}}
 <nav class="navbar navbar-dark bg-dark d-md-none">
   <div class="container-fluid d-flex align-items-center">
-    <!-- Tombol toggle offcanvas -->
-    <button class="btn btn-outline-light me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar">
-      <i class="bi bi-list"></i>
-    </button>
+  <!-- Tombol toggle offcanvas -->
+  <button class="btn btn-outline-light me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar">
+    <i class="bi bi-list"></i>
+  </button>
 
-    <!-- Logo -->
+  <!-- Logo + Brand dalam satu group -->
+  <a class="navbar-brand d-flex align-items-center mb-0 h1" href="#">
     <img src="{{ asset('assets/img/logo_kominforb.png') }}" alt="Logo" width="30" height="30" class="me-2">
+    <span>SiPeKa</span>
+  </a>
+</div>
 
-    <!-- Nama Brand -->
-    <span class="navbar-brand mb-0 h1">SiPeKa</span>
-  </div>
 </nav>
 
 {{-- Sidebar Desktop --}}
@@ -35,14 +36,15 @@
     @auth
       <li class="nav-item">
         <a href="{{ route('admin dashboard') }}"
-           class="nav-link text-white {{ request()->routeIs('admin dashboard') ? 'active' : '' }}">
+          class="nav-link text-white {{ request()->routeIs('admin dashboard') ? 'active' : '' }}">
           <i class="bi bi-house"></i> Beranda
         </a>
       </li>
     @endauth
-
+    
     <li class="nav-item">
-      <a href="{{ url('/tentang') }}" class="nav-link text-white">
+      <a href="{{ route('tentang') }}"
+        class="nav-link text-white {{ request()->routeIs('tentang') ? 'active' : '' }}">
         <i class="bi bi-info-circle"></i> Tentang
       </a>
     </li>

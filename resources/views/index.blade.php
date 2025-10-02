@@ -16,7 +16,7 @@
         <div class="col-md-4">
             <div class="card shadow-sm border-0 h-100">
                 <div class="card-body text-center">
-                    <div class="display-6 text-primary mb-2"><i class="bi bi-archive"></i></div>
+                    <div class="display-6 text-primary mb-2"><i class="bi bi-book"></i></div>
                     <h5 class="card-title fw-bold">Bidang Sekretariat</h5>
                     @php $percent = $sekretariat->kuota > 0 ? ($sekretariat->terisi / $sekretariat->kuota) * 100 : 0; @endphp
                     <div class="progress mb-3" style="height: 20px;">

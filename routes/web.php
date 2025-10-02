@@ -10,6 +10,10 @@ Route::get('/index', function () {
     return view('welcome');
 });
 
+Route::get('/tentang', function () {
+    return view('tentang');
+})->name('tentang');
+
 Route::get('/test', function () {
     return view('test');
 });
