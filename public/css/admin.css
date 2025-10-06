@@ -156,6 +156,37 @@ small {
   transition: height 0.2s ease; /* default 0.35s */
 }
 
+/* Tombol Hijau */
+/* Tombol Hijau */
+/* Tombol Hijau */
+.btn-green {
+    background: linear-gradient(45deg, #28a745, #218838);
+    color: white;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+.btn-green:hover {
+    background: white;
+    color: #218838; /* hijau gelap buat teks/icon */
+    border: 1px solid #218838;
+}
+
+/* Tombol Kuning */
+.btn-yellow {
+    background: linear-gradient(45deg, #ffc107, #e0a800);
+    color: white;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+.btn-yellow:hover {
+    background: white;
+    color: #e0a800; /* kuning gelap buat teks/icon */
+    border: 1px solid #e0a800;
+}
+
+
+
+
 .btn-gradient {
     position: relative;
     overflow: hidden;

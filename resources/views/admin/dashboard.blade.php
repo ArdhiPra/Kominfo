@@ -3,19 +3,22 @@
 @section('title', 'Dashboard Admin PKL')
 
 @section('content')
-<div class="container my-4">
-        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
     <h1 class="mb-0">Dashboard Admin</h1>
     <div class="mt-3 mt-md-0">
-        <a href="{{ route('admin.dashboard') }}" class="btn btn-gradient me-2">
-    <i class="bi bi-plus-circle"></i> Tambah Data
-</a>
+        <!-- Tombol Hijau -->
+        <a href="{{ route('admin.dashboard') }}" class="btn btn-green me-2">
+            <i class="bi bi-plus-circle"></i> Tambah Data
+        </a>
 
-<a href="{{ route('admin.dashboard') }}" class="btn btn-gradient">
-    <i class="bi bi-pencil-square"></i> Edit Data
-</a>
+        <!-- Tombol Kuning -->
+        <a href="{{ route('admin.dashboard') }}" class="btn btn-yellow">
+            <i class="bi bi-pencil-square"></i> Edit Data
+        </a>
     </div>
 </div>
+
+
 
         
         <!-- Ringkasan -->
