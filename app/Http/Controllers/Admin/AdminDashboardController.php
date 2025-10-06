@@ -39,4 +39,13 @@ class AdminDashboardController extends Controller
             'bidangs'
         ));
     }
+
+    public function edit()
+    {
+        return view('admin.edit-dashboard');
+    }
+    public function tentang()
+    {
+        return view('tentang');
+    }
 }

@@ -1,55 +1,61 @@
-    @extends('layouts.adminapp')
+@extends('layouts.adminapp')
 
-    @section('title', 'Dashboard Admin PKL')
+@section('title', 'Dashboard Admin PKL')
 
-    @section('content')
-    <div class="container my-4">
-        <h1 class="mb-4">Dashboard Admin PKL</h1>
+@section('content')
+<div class="container my-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">Dashboard Admin</h1>
+    <div class="mt-3 mt-md-0">
+        <a href="{{ route('admin.dashboard') }}" class="btn btn-gradient me-2">
+    <i class="bi bi-plus-circle"></i> Tambah Data
+</a>
 
+<a href="{{ route('admin.dashboard') }}" class="btn btn-gradient">
+    <i class="bi bi-pencil-square"></i> Edit Data
+</a>
+    </div>
+</div>
+
+        
         <!-- Ringkasan -->
     <div class="card shadow-sm border-0 mb-4">
-  <div class="card-body p-4 text-white" 
-       style="background: linear-gradient(135deg, #0d47a1, #1976d2, #42a5f5); 
-              color: #fff; 
-              border-radius: 10px;">
-              
-    <div class="row text-center">
-      
-      <!-- Jumlah Anak Magang -->
-      <div class="col-6 col-md-3 mb-3 mb-md-0 border-end">
-        <div class="small fw-bold mb-1">
-          <i class="bi bi-people-fill me-1"></i> Jumlah Anak Magang
+        <div class="card-body p-4 text-white" 
+            style="background: linear-gradient(135deg, #0d47a1, #1976d2, #42a5f5); 
+                    color: #fff; 
+                    border-radius: 10px;">
+            <div class="row text-center">
+            <!-- Jumlah Anak Magang -->
+                <div class="col-6 col-md-3 mb-3 mb-md-0 border-end">
+                    <div class="small fw-bold mb-1">
+                        <i class="bi bi-people-fill me-1"></i> Jumlah Anak Magang
+                    </div>
+                    <div class="display-6 fw-bold">{{ $jumlahAnak }}</div>
+                </div>
+            <!-- Jumlah Kuota -->
+                <div class="col-6 col-md-3 mb-3 mb-md-0 border-end hide-border-mobile">
+                    <div class="small fw-bold mb-1">
+                        <i class="bi bi-box-seam me-1"></i> Jumlah Kuota
+                    </div>
+                    <div class="display-6 fw-bold">{{ $jumlahKuota }}</div>
+                </div>
+            <!-- Terisi -->
+                <div class="col-6 col-md-3 mb-3 mb-md-0 border-end">
+                    <div class="small fw-bold mb-1">
+                        <i class="bi bi-check-circle-fill me-1"></i> Terisi
+                    </div>
+                    <div class="display-6 fw-bold">{{ $terisiTotal }}</div>
+                </div>
+            <!-- Sisa Kuota -->
+                <div class="col-6 col-md-3">
+                    <div class="small fw-bold mb-1">
+                        <i class="bi bi-x-circle-fill me-1"></i> Sisa Kuota
+                    </div>
+                    <div class="display-6 fw-bold">{{ $sisaTotal }}</div>
+                </div>
+            </div>
         </div>
-        <div class="display-6 fw-bold">{{ $jumlahAnak }}</div>
-      </div>
-
-      <!-- Jumlah Kuota -->
-      <div class="col-6 col-md-3 mb-3 mb-md-0 border-end hide-border-mobile">
-        <div class="small fw-bold mb-1">
-          <i class="bi bi-box-seam me-1"></i> Jumlah Kuota
-        </div>
-        <div class="display-6 fw-bold">{{ $jumlahKuota }}</div>
-      </div>
-
-      <!-- Terisi -->
-      <div class="col-6 col-md-3 mb-3 mb-md-0 border-end">
-        <div class="small fw-bold mb-1">
-          <i class="bi bi-check-circle-fill me-1"></i> Terisi
-        </div>
-        <div class="display-6 fw-bold">{{ $terisiTotal }}</div>
-      </div>
-
-      <!-- Sisa Kuota -->
-      <div class="col-6 col-md-3">
-        <div class="small fw-bold mb-1">
-          <i class="bi bi-x-circle-fill me-1"></i> Sisa Kuota
-        </div>
-        <div class="display-6 fw-bold">{{ $sisaTotal }}</div>
-      </div>
-
     </div>
-  </div>
-</div>
 
     
 
