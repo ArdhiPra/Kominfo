@@ -65,7 +65,7 @@ small {
 }
 
 .content {
-    margin-left: 240px;
+    margin-left: 250px;
     padding: 1rem;
 }
 
@@ -77,6 +77,29 @@ small {
 
     .hide-border-mobile {
         border: none !important;
+    }
+}
+
+@media (max-width: 576px) {
+    form .form-label {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+    form .form-control,
+    form .form-select {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+    form textarea.form-control {
+        min-height: 80px;
+    }
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .btn {
+        font-size: 15px;
+        padding: 10px 14px;
     }
 }
 
@@ -144,7 +167,7 @@ small {
 }
 
 .rotate-icon {
-    transition: transform 0.20s ease;
+    transition: transform 0.2s ease;
     display: inline-block; /* penting biar transform jalan */
 }
 
@@ -153,64 +176,49 @@ small {
 }
 
 .collapsing {
-  transition: height 0.2s ease; /* default 0.35s */
+    transition: height 0.2s ease; /* default 0.35s */
 }
 
-/* Tombol Hijau */
-/* Tombol Hijau */
 /* Tombol Hijau */
 .btn-green {
-    background: linear-gradient(45deg, #28a745, #218838);
-    color: white;
-    border: none;
-    transition: all 0.3s ease-in-out;
-}
-.btn-green:hover {
-    background: white;
-    color: #218838; /* hijau gelap buat teks/icon */
-    border: 1px solid #218838;
-}
-
-/* Tombol Kuning */
-.btn-yellow {
-    background: linear-gradient(45deg, #ffc107, #e0a800);
-    color: white;
-    border: none;
-    transition: all 0.3s ease-in-out;
-}
-.btn-yellow:hover {
-    background: white;
-    color: #e0a800; /* kuning gelap buat teks/icon */
-    border: 1px solid #e0a800;
-}
-
-
-
-
-.btn-gradient {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(90deg, #1976d2, #42a5f5);
+    background: linear-gradient(45deg, #28a745, #218838);
     color: #fff;
     border: 2px solid transparent; /* selalu ada border agar tidak bergeser */
     border-radius: 0.375rem; /* sama seperti tombol bootstrap */
     font-weight: 600;
     transition: all 0.3s ease;
 }
-
-/* Hover: ubah teks jadi gradient, hapus background */
-.btn-gradient:hover {
+.btn-green:hover {
     background: transparent;
-    background-image: linear-gradient(90deg, #1976d2, #42a5f5);
+    background-image: linear-gradient(45deg, #28a745, #218838);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    border-color: #1976d2; /* tetap ada border biru */
+    border-color: #28a745;
     box-shadow: none;
-    transform: none; /* cegah bergeser */
+    transform: none;
 }
 
-/* Tambahan efek kecil saat ditekan (klik) */
-.btn-gradient:active {
-    transform: scale(0.97);
+/* Tombol Kuning */
+.btn-yellow {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg, #ffc107, #e0a800);
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 0.375rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-yellow:hover {
+    background: transparent;
+    background-image: linear-gradient(45deg, #ffc107, #e0a800);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-color: #ffc107;
+    box-shadow: none;
+    transform: none;
 }

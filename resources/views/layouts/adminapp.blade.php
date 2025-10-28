@@ -26,7 +26,12 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <!-- SweetAlert JS -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    window.sweetalertData = @json(session('sweetalert'));
+    window.dashboardRedirect = "{{ route('admin.dashboard') }}";
+  </script>
   <script src="{{ asset('js/logout.js') }}"></script>
   <script src="{{ asset('js/sidebar.js') }}"></script>
+  <script src="{{ asset('js/notifikasi.js') }}"></script>
 </body>
 </html>

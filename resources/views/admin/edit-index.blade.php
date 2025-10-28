@@ -1,0 +1,75 @@
+@extends('layouts.adminapp')
+
+@section('title', 'Edit Data Magang')
+
+@section('content')
+<div class="container my-4">
+    <h2 class="mb-4 fw-semibold text-center text-md-start">Pilih Data Magang untuk Diedit</h2>
+
+    {{-- Filter --}}
+    <form method="GET" action="{{ route('admin.edit.index') }}" class="mb-4">
+        <div class="row g-3">
+            <div class="col-md-4 col-12">
+                <label class="form-label">Bidang</label>
+                <select name="bidang" class="form-select">
+                    <option value="">-- Semua Bidang --</option>
+                    @foreach($bidang as $b)
+                        <option value="{{ $b->id }}" {{ request('bidang') == $b->id ? 'selected' : '' }}>
+                            {{ $b->nama_bidang }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-4 col-12">
+                <label class="form-label">Asal Instansi</label>
+                <input type="text" name="asal_instansi" class="form-control" placeholder="Cari instansi..." value="{{ request('asal_instansi') }}">
+            </div>
+            <div class="col-md-4 col-12 d-flex align-items-end">
+                <button type="submit" class="btn btn-primary w-100">Terapkan Filter</button>
+            </div>
+        </div>
+    </form>
+
+    {{-- Tabel Daftar Mahasiswa --}}
+    <div class="table-responsive">
+        <table class="table table-striped align-middle">
+            <thead class="table-primary">
+                <tr>
+                    <th>No</th>
+                    <th>Nama Lengkap</th>
+                    <th>Asal Instansi</th>
+                    <th>Bidang</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse($magang as $index => $m)
+                <tr>
+                    <td>{{ $index + 1 }}</td>
+                    <td>
+                        <a href="{{ route('admin.edit.form', $m->id) }}" class="text-decoration-none fw-semibold text-primary">
+                            {{ $m->nama_lengkap }}
+                        </a>
+                    </td>
+                    <td>{{ $m->asal_instansi ?? '-' }}</td>
+                    <td>{{ optional($m->bidang)->nama_bidang ?? '-' }}</td>
+                    <td>
+                        @if($m->status == 'Aktif')
+                            <span class="badge bg-success">Aktif</span>
+                        @elseif($m->status == 'Selesai')
+                            <span class="badge bg-info text-dark">Selesai</span>
+                        @else
+                            <span class="badge bg-danger">Dikeluarkan</span>
+                        @endif
+                    </td>
+                </tr>
+                @empty
+                <tr>
+                    <td colspan="5" class="text-center text-muted">Belum ada data magang ditemukan.</td>
+                </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
+</div>
+@endsection

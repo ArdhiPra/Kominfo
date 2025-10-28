@@ -3,17 +3,26 @@
 @section('title', 'Dashboard Admin PKL')
 
 @section('content')
-<div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
     <h1 class="mb-0">Dashboard Admin</h1>
-    <div class="mt-3 mt-md-0">
-        <!-- Tombol Hijau -->
-        <a href="{{ route('admin.dashboard') }}" class="btn btn-green me-2">
+
+    <!-- Tombol Desktop -->
+    <div class="d-none d-md-flex">
+        <a href="{{ route('admin.magang.create') }}" class="btn btn-green me-2">
             <i class="bi bi-plus-circle"></i> Tambah Data
         </a>
-
-        <!-- Tombol Kuning -->
-        <a href="{{ route('admin.dashboard') }}" class="btn btn-yellow">
+        <a href="{{ route('admin.edit.index') }}" class="btn btn-yellow">
             <i class="bi bi-pencil-square"></i> Edit Data
+        </a>
+    </div>
+
+    <!-- Tombol Mobile (ikon saja di kanan atas) -->
+    <div class="d-flex d-md-none gap-2 ms-auto">
+        <a href="{{ route('admin.magang.create') }}" class="btn btn-green p-2">
+            <i class="bi bi-plus-circle fs-5"></i>
+        </a>
+        <a href="{{ route('admin.edit.index') }}" class="btn btn-yellow p-2">
+            <i class="bi bi-pencil-square fs-5"></i>
         </a>
     </div>
 </div>
