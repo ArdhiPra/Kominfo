@@ -5,10 +5,9 @@
 @section('content')
 <div class="container my-4">
     <h2 class="mb-4 fw-semibold text-center text-md-start">Edit Data Magang</h2>
-
-    <form action="{{ route('admin.edit.update', $magang->id) }}" method="POST" class="needs-validation" novalidate>
-        @csrf
-
+    <form action="{{ route('admin.edit.update', $magang->id) }}" method="POST">
+    @csrf
+    @method('PUT')
         <div class="row g-3 mb-3">
             <div class="col-md-6 col-12">
                 <label class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
@@ -114,7 +113,7 @@
 
         <div class="d-flex justify-content-end gap-2 mt-4">
             <button type="submit" class="btn btn-primary">💾 Simpan Perubahan</button>
-            <a href="{{ route('admin.dashboard') }}" class="btn btn-danger">Batal</a>
+            <a href="{{ route('admin.edit.index') }}" class="btn btn-danger">Batal</a>
         </div>
     </form>
 </div>

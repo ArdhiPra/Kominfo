@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         title: alertData.title,
         text: alertData.text,
         confirmButtonText: "OK",
-        width: "85%", // responsive di mobile
+        width: 450, // responsive di mobile
     }).then((result) => {
         if (result.isConfirmed && alertData.icon === "success") {
             window.location.href = window.dashboardRedirect;

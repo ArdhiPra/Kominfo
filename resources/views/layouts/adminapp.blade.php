@@ -12,6 +12,14 @@
   <link rel="icon" type="image/png" href="{{ asset('assets/img/logo_kominforb.png') }}">
   <!-- Custom CSS -->
   <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+
+  @if (session('success'))
+    <meta name="alert-success" content="{{ session('success') }}">
+  @endif
+  @if (session('error'))
+    <meta name="alert-error" content="{{ session('error') }}">
+  @endif
+
 </head>
 <body>
   {{-- Sidebar (desktop & mobile) --}}
@@ -33,5 +41,6 @@
   <script src="{{ asset('js/logout.js') }}"></script>
   <script src="{{ asset('js/sidebar.js') }}"></script>
   <script src="{{ asset('js/notifikasi.js') }}"></script>
+  <script src="{{ asset('js/edit-notifikasi.js') }}"></script>
 </body>
 </html>

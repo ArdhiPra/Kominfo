@@ -94,7 +94,7 @@
                             <div class="col"><div class="fw-bold text-success">{{ $sekretariat->terisi }}</div><small>Terisi</small></div>
                             <div class="col"><div class="fw-bold text-danger">{{ $sekretariat->sisa }}</div><small>Sisa</small></div>
                         </div>
-                        <a href="#" class="btn btn-outline-primary btn-sm">Lihat Detail</a>
+                        <a href="{{ route('admin.sekretariat') }}" class="btn btn-outline-primary btn-sm">Lihat Detail</a>
                     </div>
                 </div>
             </div>
