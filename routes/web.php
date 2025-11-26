@@ -42,6 +42,12 @@ Route::middleware(['auth'])->group(function () {
     
     // Bidang
     Route::get('/admin/sekretariat', [BidangController::class, 'sekretariat'])->name('admin.sekretariat');
+    Route::get('/admin/persandian', [BidangController::class, 'persandian'])->name('admin.persandian');
+    Route::get('/admin/pikp', [BidangController::class, 'pikp'])->name('admin.pikp');
+    Route::get('/admin/tik', [BidangController::class, 'tik'])->name('admin.tik');
+    Route::get('/admin/statistik', [BidangController::class, 'statistik'])->name('admin.statistik');
+
+
 
     //Profil
     Route::get('/admin/magang/profil/{id}', [\App\Http\Controllers\Admin\ProfilMahasiswaController::class, 'show']

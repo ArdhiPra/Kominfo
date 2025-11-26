@@ -74,7 +74,7 @@
         <tr>
             <td>Unit Penempatan</td>
             <td>:</td>
-            <td>{{ $mahasiswa->unit_penempatan ?? '-' }}</td>
+            <td>{{ $mahasiswa->bidang->nama_bidang ?? '-' }}</td>
         </tr>
 
         <tr>

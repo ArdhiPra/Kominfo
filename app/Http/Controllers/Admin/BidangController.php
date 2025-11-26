@@ -29,4 +29,68 @@ class BidangController extends Controller
 
         return view('admin.bidang.bidang-sekretariat', compact('magang', 'bidang'));
     }
+
+    public function persandian()
+    {
+        $bidang = Bidang::where('nama_bidang', 'LIKE', '%Persandian%')->first();
+
+        if (!$bidang) {
+            return back()->withErrors(['msg' => 'Bidang Persandian tidak ditemukan di database.']);
+        }
+
+        $magang = Magang::with('bidang')
+            ->where('unit_penempatan', $bidang->id) // gunakan unit_penempatan, bukan bidang_id
+            ->orderBy('nama_lengkap', 'asc')
+            ->get();
+
+        return view('admin.bidang.bidang-persandian', compact('magang', 'bidang'));
+    }
+
+    public function pikp()
+    {
+        $bidang = Bidang::where('nama_bidang', 'LIKE', '%PIKP%')->first();
+
+        if (!$bidang) {
+            return back()->withErrors(['msg' => 'Bidang PIKP tidak ditemukan di database.']);
+        }
+
+        $magang = Magang::with('bidang')
+            ->where('unit_penempatan', $bidang->id) // gunakan unit_penempatan, bukan bidang_id
+            ->orderBy('nama_lengkap', 'asc')
+            ->get();
+
+        return view('admin.bidang.bidang-pikp', compact('magang', 'bidang'));
+    }
+
+    public function statistik()
+    {
+        $bidang = Bidang::where('nama_bidang', 'LIKE', '%Statistik%')->first();
+
+        if (!$bidang) {
+            return back()->withErrors(['msg' => 'Bidang Statistik tidak ditemukan di database.']);
+        }
+
+        $magang = Magang::with('bidang')
+            ->where('unit_penempatan', $bidang->id) // gunakan unit_penempatan, bukan bidang_id
+            ->orderBy('nama_lengkap', 'asc')
+            ->get();
+
+        return view('admin.bidang.bidang-statistik', compact('magang', 'bidang'));
+    }
+
+    public function tik()
+    {
+        $bidang = Bidang::where('nama_bidang', 'LIKE', '%TIK%')->first();
+
+        if (!$bidang) {
+            return back()->withErrors(['msg' => 'Bidang TIK tidak ditemukan di database.']);
+        }
+
+        $magang = Magang::with('bidang')
+            ->where('unit_penempatan', $bidang->id) // gunakan unit_penempatan, bukan bidang_id
+            ->orderBy('nama_lengkap', 'asc')
+            ->get();
+
+        return view('admin.bidang.bidang-tik', compact('magang', 'bidang'));
+    }
 }

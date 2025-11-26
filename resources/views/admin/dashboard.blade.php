@@ -119,7 +119,7 @@
                             <div class="col"><div class="fw-bold text-success">{{ $tik->terisi }}</div><small>Terisi</small></div>
                             <div class="col"><div class="fw-bold text-danger">{{ $tik->sisa }}</div><small>Sisa</small></div>
                         </div>
-                        <a href="#" class="btn btn-outline-success btn-sm">Lihat Detail</a>
+                        <a href="{{ route('admin.tik') }}" class="btn btn-outline-success btn-sm">Lihat Detail</a>
                     </div>
                 </div>
             </div>
@@ -144,7 +144,7 @@
                             <div class="col"><div class="fw-bold text-success">{{ $persandian->terisi }}</div><small>Terisi</small></div>
                             <div class="col"><div class="fw-bold text-danger">{{ $persandian->sisa }}</div><small>Sisa</small></div>
                         </div>
-                        <a href="#" class="btn btn-outline-warning btn-sm">Lihat Detail</a>
+                        <a href="{{ route('admin.persandian') }}" class="btn btn-outline-warning btn-sm">Lihat Detail</a>
                     </div>
                 </div>
             </div>
@@ -169,7 +169,7 @@
                             <div class="col"><div class="fw-bold text-success">{{ $statistik->terisi }}</div><small>Terisi</small></div>
                             <div class="col"><div class="fw-bold text-danger">{{ $statistik->sisa }}</div><small>Sisa</small></div>
                         </div>
-                        <a href="#" class="btn btn-outline-info btn-sm">Lihat Detail</a>
+                        <a href="{{ route('admin.statistik') }}" class="btn btn-outline-info btn-sm">Lihat Detail</a>
                     </div>
                 </div>
             </div>
@@ -194,7 +194,7 @@
                             <div class="col"><div class="fw-bold text-success">{{ $pikp->terisi }}</div><small>Terisi</small></div>
                             <div class="col"><div class="fw-bold text-danger">{{ $pikp->sisa }}</div><small>Sisa</small></div>
                         </div>
-                        <a href="#" class="btn btn-outline-danger btn-sm">Lihat Detail</a>
+                        <a href="{{ route('admin.pikp') }}" class="btn btn-outline-danger btn-sm">Lihat Detail</a>
                     </div>
                 </div>
             </div>
