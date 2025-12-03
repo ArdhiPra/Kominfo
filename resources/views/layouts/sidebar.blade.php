@@ -5,24 +5,47 @@
   <button class="btn btn-outline-light me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSidebar">
     <i class="bi bi-list"></i>
   </button>
-
+@guest
   <!-- Logo + Brand dalam satu group -->
-  <a class="navbar-brand d-flex align-items-center mb-0 h1" href="#">
+  <a class="navbar-brand d-flex align-items-center mb-0 h1" href="{{ route('user.dashboard') }}">
     <img src="{{ asset('assets/img/logo_kominforb.png') }}" alt="Logo" width="30" height="30" class="me-2">
     <span>SiPeKa</span>
   </a>
+@endguest
+@auth
+    <a class="navbar-brand d-flex align-items-center mb-0 h1" href="{{ route('admin.dashboard') }}">
+    <img src="{{ asset('assets/img/logo_kominforb.png') }}" alt="Logo" width="30" height="30" class="me-2">
+    <span>SiPeKa</span>
+  </a>
+@endauth
 </div>
 
 </nav>
-
 {{-- Sidebar Desktop --}}
-<div class="sidebar d-none d-md-block bg-dark text-white p-3" style="width: 250px; min-height: 100vh;">
-  <div class="d-flex align-items-center mb-3">
-    <img src="{{ asset('assets/img/logo_kominforb.png') }}" alt="Logo" width="30" height="30" class="me-2">
-    <h4 class="mb-0">SiPeKa</h4>
-  </div>
-  <hr class="text-secondary">
+@php
+    // Default jika belum login (guest)
+    $redirectRoute = 'user.dashboard';
 
+    if (Auth::check()) {
+        // Jika user login dan role-nya admin → arahkan ke dashboard admin
+        if (Auth::user()->role === 'admin') {
+            $redirectRoute = 'admin.dashboard';
+        } else {
+            // Jika user login biasa → tetap ke dashboard user
+            $redirectRoute = 'user.dashboard';
+        }
+    }
+@endphp
+<div class="sidebar d-none d-md-block bg-dark text-white p-3" 
+    style="width: 250px; min-height: 100vh;">
+    <a href="{{ route($redirectRoute) }}" 
+        class="d-flex align-items-center mb-3 text-white text-decoration-none">
+        <img src="{{ asset('assets/img/logo_kominforb.png') }}" 
+            alt="Logo" width="30" height="30" class="me-2">
+        <h4 class="mb-0">SiPeKa</h4>
+    </a>
+
+  <hr class="text-secondary">
   <ul class="nav flex-column">
     @guest
       <li class="nav-item">

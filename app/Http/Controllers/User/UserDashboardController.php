@@ -19,7 +19,7 @@ class UserDashboardController extends Controller
             $b->sisa = $b->kuota - $b->terisi;
         });
 
-        return view('index', compact(
+        return view('dashboard', compact(
             'bidangs'
         ));
     }
