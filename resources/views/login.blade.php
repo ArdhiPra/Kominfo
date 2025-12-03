@@ -14,7 +14,8 @@
     <!-- Login Card -->
     <div class="login-card">
         <div class="text-center mb-3">
-            <h5>Your Logo</h5>
+            <img src="{{ asset('assets/img/logo_kominforb.png') }}" alt="Logo" class="mb-2" style="width: 100px; height: auto;">  
+            
             <p class="mb-0">Login</p>
         </div>
 
