@@ -58,30 +58,30 @@
 
     @auth
     <li class="nav-item dashboard-menu">
-  <a href="{{ route('admin.dashboard') }}"
-     class="nav-link text-white d-flex justify-content-between align-items-center {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
-    <span>
-      <i class="bi bi-house"></i> Dashboard
-    </span>
-    <!-- Ikon toggle -->
-    <span class="toggle-dropdown"
+      <a href="{{ route('admin.dashboard') }}"
+        class="nav-link text-white d-flex justify-content-between align-items-center {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+        <span>
+          <i class="bi bi-house"></i> Dashboard
+        </span>
+        <!-- Ikon toggle -->
+        <span class="toggle-dropdown"
           data-bs-toggle="collapse"
           data-bs-target="#dashboardCollapse"
           aria-expanded="{{ request()->routeIs('admin.dashboard.edit') ? 'true' : 'false' }}"
           aria-controls="dashboardCollapse"
           onclick="event.preventDefault();">
-      <i class="bi bi-chevron-right rotate-icon 
-        {{ request()->routeIs('tentang') || request()->routeIs('admin.dashboard.edit') ? 'rotate' : '' }}">
-      </i>
-      </span>
-  </a>
+            <i class="bi bi-chevron-right rotate-icon 
+            {{ request()->routeIs('tentang') || request()->routeIs('admin.dashboard.edit') ? 'rotate' : '' }}">
+          </i>
+        </span>
+      </a>
 
   <!-- Submenu -->
   <div class="collapse {{ request()->routeIs('admin.dashboard.edit') ? 'show' : '' }}" id="dashboardCollapse">
     <ul class="nav flex-column ms-4">
       <li class="nav-item">
         <a href="{{ route('admin.dashboard.edit') }}"
-           class="nav-link text-white {{ request()->routeIs('admin.dashboard.edit') ? 'active' : '' }}">
+            class="nav-link text-white {{ request()->routeIs('admin.dashboard.edit') ? 'active' : '' }}">
           <i class="bi bi-pencil-square"></i> Edit Dashboard
         </a>
       </li>
@@ -91,7 +91,7 @@
     @endauth
 
     <li class="nav-item">
-      <a href="{{ url('/tentang') }}"
+      <a href="{{ route('tentang') }}"
         class="nav-link text-white {{ request()->routeIs('tentang') ? 'active' : '' }}">
         <i class="bi bi-info-circle"></i> Tentang
       </a>
@@ -105,7 +105,7 @@
 
     @guest
       <li class="nav-item">
-        <a href="{{ url('/tentang') }}" class="nav-link text-white">
+        <a href="{{ route('login') }}" class="nav-link text-white">
           <i class="bi bi-box-arrow-in-right"></i> Login
         </a>
       </li>
@@ -141,7 +141,7 @@
       @guest
         <li class="nav-item">
           <a href="{{ route('user.dashboard') }}"
-             class="nav-link text-white {{ request()->routeIs('user.dashboard') ? 'active' : '' }}">
+              class="nav-link text-white {{ request()->routeIs('user.dashboard') ? 'active' : '' }}">
             <i class="bi bi-house"></i> Beranda
           </a>
         </li>
@@ -151,7 +151,7 @@
       @auth
         <li class="nav-item dashboard-menu">
           <a href="{{ route('admin.dashboard') }}"
-             class="nav-link text-white d-flex justify-content-between align-items-center {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+              class="nav-link text-white d-flex justify-content-between align-items-center {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
             <span><i class="bi bi-house"></i> Dashboard</span>
             <span class="toggle-dropdown"
                   data-bs-toggle="collapse"
@@ -162,13 +162,12 @@
               <i class="bi bi-chevron-right rotate-icon {{ request()->routeIs('admin.dashboard.edit') ? 'open' : '' }}"></i>
             </span>
           </a>
-
           <!-- Submenu mobile -->
           <div class="collapse {{ request()->routeIs('admin.dashboard.edit') ? 'show' : '' }}" id="dashboardCollapseMobile">
             <ul class="nav flex-column ms-4">
               <li class="nav-item">
                 <a href="{{ route('admin.dashboard.edit') }}"
-                   class="nav-link text-white {{ request()->routeIs('admin.dashboard.edit') ? 'active' : '' }}">
+                    class="nav-link text-white {{ request()->routeIs('admin.dashboard.edit') ? 'active' : '' }}">
                   <i class="bi bi-pencil-square"></i> Edit Dashboard
                 </a>
               </li>
@@ -208,7 +207,6 @@
           </form>
         </li>
       @endauth
-
     </ul>
   </div>
 </div>
