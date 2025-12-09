@@ -19,8 +19,15 @@ class UserDashboardController extends Controller
             $b->sisa = $b->kuota - $b->terisi;
         });
 
+        // Tambahan data ringkasan Dashboard
+        $totalPeserta = AnakPkl::count();
+        $pesertaAktif = AnakPkl::where('status', 'Aktif')->count();
+
+        // Panggil view yang benar (bukan user.dashboard)
         return view('dashboard', compact(
-            'bidangs'
+            'bidangs',
+            'totalPeserta',
+            'pesertaAktif'
         ));
     }
 }
