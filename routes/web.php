@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\EditController;
 use App\Http\Controllers\Admin\BidangController;
 use App\Http\Controllers\User\UserDashboardController;
 use App\Http\Controllers\Admin\TambahController;
+use Termwind\Components\Raw;
 
 Route::get('/index', function () {
     return view('welcome');
@@ -14,6 +15,10 @@ Route::get('/index', function () {
 
 Route::get('/test', function () {
     return view('test');
+});
+
+Route::get ('/tentang', function () {
+    return view('tentang');
 });
 
 // Auth routes
@@ -29,8 +34,7 @@ Route::middleware(['auth'])->group(function () {
     // Dashboard
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/dashboard/edit', [AdminDashboardController::class, 'edit'])->name('admin.dashboard.edit');
-    Route::get('/tentang', [AdminDashboardController::class, 'tentang'])->name('tentang');
-
+    
     // Magang
     Route::get('/admin/magang/create', [TambahController::class, 'create'])->name('admin.magang.create');
     Route::post('/admin/magang/store', [TambahController::class, 'store'])->name('admin.magang.store');

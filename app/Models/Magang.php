@@ -11,6 +11,11 @@ class Magang extends Model
 
     // Nama tabel sebenarnya di database
     protected $table = 'tbl_anak_pkl';
+    
+    protected $casts = [
+    'tanggal_mulai' => 'date',
+    'tanggal_selesai' => 'date',
+    ];
 
     // Kolom yang bisa diisi (fillable)
     protected $fillable = [
@@ -30,8 +35,10 @@ class Magang extends Model
         'pembimbing_lapangan',
         'status',
     ];
+
     public function bidang()
     {
         return $this->belongsTo(Bidang::class, 'unit_penempatan', 'id');
     }
+    
 }

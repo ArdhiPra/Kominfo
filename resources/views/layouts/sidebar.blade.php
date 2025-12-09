@@ -88,11 +88,10 @@
     </ul>
   </div>
 </li>
-
     @endauth
 
     <li class="nav-item">
-      <a href="{{ route('tentang') }}"
+      <a href="{{ url('/tentang') }}"
         class="nav-link text-white {{ request()->routeIs('tentang') ? 'active' : '' }}">
         <i class="bi bi-info-circle"></i> Tentang
       </a>
@@ -106,7 +105,7 @@
 
     @guest
       <li class="nav-item">
-        <a href="{{ route('login') }}" class="nav-link text-white">
+        <a href="{{ url('/tentang') }}" class="nav-link text-white">
           <i class="bi bi-box-arrow-in-right"></i> Login
         </a>
       </li>

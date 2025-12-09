@@ -71,11 +71,15 @@
         <div class="row g-3 mb-3">
             <div class="col-md-6 col-12">
                 <label class="form-label">Tanggal Mulai</label>
-                <input type="date" name="tanggal_mulai" class="form-control" value="{{ old('tanggal_mulai', $magang->tanggal_mulai) }}">
+                <input type="date" name="tanggal_mulai"
+                    class="form-control"
+                    value="{{ old('tanggal_mulai', $magang->tanggal_mulai?->format('Y-m-d')) }}">    
             </div>
             <div class="col-md-6 col-12">
                 <label class="form-label">Tanggal Selesai</label>
-                <input type="date" name="tanggal_selesai" class="form-control" value="{{ old('tanggal_selesai', $magang->tanggal_selesai) }}">
+                <input type="date" name="tanggal_selesai"
+                    class="form-control"
+                    value="{{ old('tanggal_selesai', $magang->tanggal_selesai?->format('Y-m-d')) }}">    
             </div>
         </div>
 

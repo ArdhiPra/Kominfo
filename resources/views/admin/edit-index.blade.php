@@ -8,27 +8,50 @@
 
     {{-- Filter --}}
     <form method="GET" action="{{ route('admin.edit.index') }}" class="mb-4">
-        <div class="row g-3">
-            <div class="col-md-4 col-12">
-                <label class="form-label">Bidang</label>
-                <select name="bidang" class="form-select">
-                    <option value="">-- Semua Bidang --</option>
-                    @foreach($bidang as $b)
-                        <option value="{{ $b->id }}" {{ request('bidang') == $b->id ? 'selected' : '' }}>
-                            {{ $b->nama_bidang }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="col-md-4 col-12">
-                <label class="form-label">Asal Instansi</label>
-                <input type="text" name="asal_instansi" class="form-control" placeholder="Cari instansi..." value="{{ request('asal_instansi') }}">
-            </div>
-            <div class="col-md-4 col-12 d-flex align-items-end">
-                <button type="submit" class="btn btn-primary w-100">Terapkan Filter</button>
-            </div>
+    <div class="row g-3">
+
+        <!-- Bidang -->
+        <div class="col-md-4 col-12">
+            <label class="form-label">Bidang</label>
+            <select name="bidang" class="form-select">
+                <option value="">-- Semua Bidang --</option>
+                @foreach($bidang as $b)
+                    <option value="{{ $b->id }}" {{ request('bidang') == $b->id ? 'selected' : '' }}>
+                        {{ $b->nama_bidang }}
+                    </option>
+                @endforeach
+            </select>
         </div>
-    </form>
+
+        <!-- Asal Instansi -->
+        <div class="col-md-4 col-12">
+            <label class="form-label">Asal Instansi</label>
+            <input type="text" name="asal_instansi" class="form-control" placeholder="Cari instansi..." value="{{ request('asal_instansi') }}">
+        </div>
+
+        <!-- Status -->
+        <div class="col-md-4 col-12">
+            <label class="form-label">Status</label>
+            <select name="status" class="form-select">
+                <option value="">-- Semua Status --</option>
+                <option value="Aktif" {{ request('status') == 'Aktif' ? 'selected' : '' }}>Aktif</option>
+                <option value="Selesai" {{ request('status') == 'Selesai' ? 'selected' : '' }}>Selesai</option>
+                <option value="Dikeluarkan" {{ request('status') == 'Dikeluarkan' ? 'selected' : '' }}>Dikeluarkan</option>
+            </select>
+        </div>
+
+        <!-- Tombol di bawah seluruh filter -->
+        <div class="col-12 d-flex">
+            <button type="submit" class="btn btn-primary ms-auto">
+                Terapkan Filter
+            </button>
+        </div>
+
+    </div>
+</form>
+
+
+
 
     {{-- Tabel Daftar Mahasiswa --}}
     <div class="table-responsive">

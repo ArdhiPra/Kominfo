@@ -30,4 +30,9 @@ class UserDashboardController extends Controller
             'pesertaAktif'
         ));
     }
+
+    public function tentang()
+    {
+        return view('tentang');
+    }
 }

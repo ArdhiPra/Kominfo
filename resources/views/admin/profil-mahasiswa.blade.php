@@ -62,13 +62,13 @@
         <tr>
             <td>Tanggal Mulai</td>
             <td>:</td>
-            <td>{{ $mahasiswa->tanggal_mulai ?? '-' }}</td>
+            <td>{{ $mahasiswa->tanggal_mulai->format('d-m-Y') }}
         </tr>
 
         <tr>
             <td>Tanggal Selesai</td>
             <td>:</td>
-            <td>{{ $mahasiswa->tanggal_selesai ?? '-' }}</td>
+            <td>{{ $mahasiswa->tanggal_selesai->format('d-m-Y') }}
         </tr>
 
         <tr>
