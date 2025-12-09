@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
             text: successMessage,
             width: 450, // <<< UBAH DI SINI
             showConfirmButton: false,
-            timer: 2000,
+            timer: 1500,
         });
     }
 
@@ -22,7 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
             icon: "error",
             title: "Gagal!",
             text: errorMessage,
-            width: 450, // <<< UBAH DI SINI
+            width: 450,
+            timer: 2000, // <<< UBAH DI SINI
             showConfirmButton: true,
         });
     }

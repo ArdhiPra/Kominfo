@@ -44,8 +44,4 @@ class AdminDashboardController extends Controller
     {
         return view('admin.edit-dashboard');
     }
-    public function tentang()
-    {
-        return view('tentang');
-    }
 }

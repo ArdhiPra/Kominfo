@@ -11,7 +11,7 @@ class UpdatePklStatus extends Command
     /**
      * Nama command yang dipanggil di terminal / scheduler.
      */
-    protected $signature = 'pkl:update-status';
+    protected $signature = 'update-status';
 
     /**
      * Deskripsi command.
@@ -23,14 +23,17 @@ class UpdatePklStatus extends Command
      */
     public function handle()
     {
-        $today = Carbon::today();
+        \Log::info("Scheduler jalan pada: " . now());
 
-        $count = AnakPkl::where('status', 'Aktif')
-            ->whereDate('tanggal_selesai', '<=', $today)
-            ->update(['status' => 'Selesai']);
+    $today = now()->toDateString();
 
-        $this->info("Status berhasil diperbarui untuk {$count} peserta PKL.");
+    $count = AnakPkl::where('status', 'Aktif')
+        ->whereDate('tanggal_selesai', '<=', $today)
+        ->update(['status' => 'Selesai']);
 
-        return self::SUCCESS;
-    }
+        \Log::info("Jumlah update: $count");
+
+    return self::SUCCESS;
+}
+
 }

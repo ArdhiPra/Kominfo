@@ -14,22 +14,33 @@ class EditController extends Controller
      */
     public function index(Request $request)
     {
-        $bidang = Bidang::all();
-        // Query dasar
-        $query = Magang::with('bidang')->where('status', 'Aktif');
-        // Filter bidang
-        if ($request->filled('bidang')) {
-            $query->where('unit_penempatan', $request->bidang);
-        }
-        // Filter asal instansi
-        if ($request->filled('asal_instansi')) {
-            $query->where('asal_instansi', 'like', '%' . $request->asal_instansi . '%');
-        }
-        // Jalankan query
-        $magang = $query->get();
+    $bidang = Bidang::all();
 
-        return view('admin.edit-index', compact('magang', 'bidang'));
+    $query = Magang::with('bidang');
+
+    // Filter bidang
+    if ($request->filled('bidang')) {
+        $query->where('unit_penempatan', $request->bidang);
     }
+
+    // Filter asal instansi
+    if ($request->filled('asal_instansi')) {
+        $query->where('asal_instansi', 'like', '%' . $request->asal_instansi . '%');
+    }
+
+    // Status default = Aktif
+    if ($request->filled('status')) {
+        $query->where('status', $request->status);
+    } else {
+        // default
+        $query->where('status', 'Aktif');
+    }
+
+    $magang = $query->get();
+
+    return view('admin.edit-index', compact('magang', 'bidang'));
+    }
+
 
     /**
      * Form edit mahasiswa magang
@@ -56,7 +67,7 @@ class EditController extends Controller
         'asal_instansi'       => 'nullable|string|max:100',
         'program_studi'       => 'nullable|string|max:100',
         'tingkat'             => 'nullable|in:SMA/K,D3,D4,S1,S2',
-        'nomor_induk'         => 'nullable|string|max:20|unique:tbl_anak_pkl,nomor_induk,' . $magang->id,
+        'nomor_induk'         => 'nullable|digits_between:5,20|unique:tbl_anak_pkl,nomor_induk,' . $magang->id,
         'email'               => 'nullable|email|max:100',
         'no_hp'               => 'nullable|string|max:20',
         'jenis_kelamin'       => 'nullable|in:Laki-laki,Perempuan',
