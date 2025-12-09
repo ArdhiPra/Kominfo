@@ -17,9 +17,8 @@ Route::get('/test', function () {
     return view('test');
 });
 
-Route::get ('/tentang', function () {
-    return view('tentang');
-});
+    Route::get('/tentang', [UserDashboardController::class, 'tentang'])->name('tentang');
+
 
 // Auth routes
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
