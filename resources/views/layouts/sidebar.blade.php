@@ -190,7 +190,7 @@
         </a>
       </li>
 
-      @guest
+        @guest
         <li class="nav-item">
           <a href="{{ route('login') }}" class="nav-link text-white">
             <i class="bi bi-box-arrow-in-right"></i> Login
