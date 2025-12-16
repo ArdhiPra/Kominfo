@@ -6,7 +6,7 @@ body {
 
 .page-header {
     position: relative;
-    width: 100%;   
+    width: 100%;
     padding: 15px 32px; /* tetap seperti semula, tidak menurunkan teks */
     background: transparent;
 
@@ -108,9 +108,9 @@ small {
 .offcanvas-body .nav-link.active {
   background-color: rgba(255, 255, 255, 0.2);
   font-weight: 600;
-  color: #fff;  
-}    
+  color: #fff;
+}
 
 .h1{
   font-family:"Roboto",sans-serif;
-} 
+}
