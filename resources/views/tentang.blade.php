@@ -3,26 +3,23 @@
 @section('title', 'Tentang Kami')
 
 @section('content')
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('assets/img/logo_kominforb.png') }}">
+<div class="page-wrapper">
 
-</head>
-
-<body>
-<!-- ================= MAIN CONTENT ================= -->
-<div class="main-content">
-
-    <!-- HERO -->
+    {{-- ================= HERO ================= --}}
     <section class="hero">
         <h1>Tentang Kami</h1>
-        <p>Solusi digital untuk pengelolaan PKL yang efisien & terstruktur</p>
+        <p>
+            Si Peka hadir sebagai solusi digital untuk mempermudah proses pengelolaan<br>
+            peserta, kuota, dan data bidang secara efisien
+        </p>
     </section>
 
-    <!-- CONTENT -->
-    <div class="container about-content">
+    {{-- ================= MAIN CONTENT ================= --}}
+    <div class="container about-content pb-5">
         <div class="row align-items-start">
+
+            {{-- TEXT --}}
             <div class="col-lg-6">
                 <h2 class="fw-bold">Transformasi Digital PKL</h2>
                 <p class="text-muted">
@@ -32,16 +29,24 @@
                 </p>
 
                 <div class="my-3">
-                    <button class="btn btn-warning text-white rounded-pill px-4 me-2"
-                            onclick="showTab('misi')">Misi</button>
-                    <button class="btn btn-light rounded-pill px-4"
-                            onclick="showTab('visi')">Visi</button>
+                    <button id="btn-misi"
+                            class="btn btn-warning text-white rounded-pill px-4 me-2"
+                            onclick="showTab('misi')">
+                        Misi
+                    </button>
+
+                    <button id="btn-visi"
+                            class="btn btn-light rounded-pill px-4"
+                            onclick="showTab('visi')">
+                        Visi
+                    </button>
                 </div>
 
                 <div id="misi">
                     <p>
-                        Meningkatkan kualitas layanan pendidikan, tata kelola
-                        pemerintahan, serta inovasi berbasis teknologi.
+                        Meningkatkan kualitas layanan pendidikan,
+                        tata kelola pemerintahan, serta inovasi
+                        berbasis teknologi.
                     </p>
                 </div>
 
@@ -52,57 +57,82 @@
                 </div>
             </div>
 
+            {{-- IMAGE --}}
             <div class="col-lg-6 text-center mt-4 mt-lg-0">
                 <div class="image-sticky">
                     <img src="{{ asset('assets/img/ikon kominfo.jpg') }}"
-                         class="img-fluid illustration-img">
+                         class="img-fluid illustration-img"
+                         alt="Kominfo Denpasar">
                 </div>
             </div>
+
         </div>
     </div>
 
+    {{-- ================= FOOTER ================= --}}
+    <footer class="custom-footer">
+        <div class="container py-5">
+
+            {{-- SOCIAL MEDIA --}}
+            <div class="row mb-4">
+                <div class="col text-center">
+                    <a href="https://www.youtube.com/@denpasarkota57" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@kominfosdenpasar" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.instagram.com/kominfosdenpasar" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/DiskominfosBali" target="_blank" class="social-icon"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://www.kominfostatistik.denpasarkota.go.id/" target="_blank" class="social-icon"><i class="fas fa-globe"></i></a>
+                </div>
+            </div>
+
+            <hr class="footer-divider-custom">
+
+            {{-- BOTTOM --}}
+            <div class="row align-items-center small text-center text-md-start">
+                <div class="col-md-4 fw-semibold mb-2 mb-md-0">
+                    © 2025 SiPeKa
+                </div>
+
+                <div class="col-md-4 text-center mb-2 mb-md-0">
+                    <a href="#" class="footer-link">Dashboard</a>
+                    <a href="#" class="footer-link">Peserta PKL</a>
+                    <a href="#" class="footer-link">Kuota</a>
+                    <a href="#" class="footer-link">Bidang</a>
+                </div>
+
+                <div class="col-md-4 text-md-end fst-italic opacity-75">
+                    Dinas Komunikasi, Informatika, dan Statistik Kota Denpasar
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
 </div>
 
-<!-- SCRIPT -->
+{{-- ================= SCRIPT ================= --}}
 <script>
     function showTab(tab) {
-        document.getElementById('misi').classList.add('d-none');
-        document.getElementById('visi').classList.add('d-none');
+        const misi = document.getElementById('misi');
+        const visi = document.getElementById('visi');
+        const btnMisi = document.getElementById('btn-misi');
+        const btnVisi = document.getElementById('btn-visi');
 
-        document.getElementById(tab).classList.remove('d-none');
+        misi.classList.add('d-none');
+        visi.classList.add('d-none');
+
+        btnMisi.className = 'btn btn-light rounded-pill px-4 me-2';
+        btnVisi.className = 'btn btn-light rounded-pill px-4';
+
+        if (tab === 'misi') {
+            misi.classList.remove('d-none');
+            btnMisi.classList.replace('btn-light', 'btn-warning');
+            btnMisi.classList.add('text-white');
+        } else {
+            visi.classList.remove('d-none');
+            btnVisi.classList.replace('btn-light', 'btn-warning');
+            btnVisi.classList.add('text-white');
+        }
     }
 </script>
 
-    <!-- SCRIPT TAB -->
-    <script>
-        function showTab(tab) {
-            const misi = document.getElementById('misi');
-            const visi = document.getElementById('visi');
-
-            const btnMisi = document.getElementById('btn-misi');
-            const btnVisi = document.getElementById('btn-visi');
-
-            // hide all content
-            misi.classList.add('d-none');
-            visi.classList.add('d-none');
-
-            // reset button style
-            btnMisi.classList.remove('btn-warning', 'text-white');
-            btnMisi.classList.add('btn-light');
-
-            btnVisi.classList.remove('btn-warning', 'text-white');
-            btnVisi.classList.add('btn-light');
-
-            // show selected tab
-            if (tab === 'misi') {
-                misi.classList.remove('d-none');
-                btnMisi.classList.remove('btn-light');
-                btnMisi.classList.add('btn-warning', 'text-white');
-            } else {
-                visi.classList.remove('d-none');
-                btnVisi.classList.remove('btn-light');
-                btnVisi.classList.add('btn-warning', 'text-white');
-            }
-        }
-    </script>
 @endsection
