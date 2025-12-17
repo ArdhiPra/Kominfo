@@ -3,7 +3,6 @@
 @section('title', 'Tentang Kami')
 
 @section('content')
-
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
@@ -62,16 +61,6 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="custom-footer py-5">
-        <div class="container text-center">
-            <h5 class="fw-bold">© 2025 SiPeKa</h5>
-            <p class="opacity-75 mb-0">
-                Dinas Komunikasi, Informatika, dan Statistik Kota Denpasar
-            </p>
-        </div>
-    </footer>
-
 </div>
 
 <!-- SCRIPT -->
@@ -83,4 +72,37 @@
         document.getElementById(tab).classList.remove('d-none');
     }
 </script>
- @endsection
+
+    <!-- SCRIPT TAB -->
+    <script>
+        function showTab(tab) {
+            const misi = document.getElementById('misi');
+            const visi = document.getElementById('visi');
+
+            const btnMisi = document.getElementById('btn-misi');
+            const btnVisi = document.getElementById('btn-visi');
+
+            // hide all content
+            misi.classList.add('d-none');
+            visi.classList.add('d-none');
+
+            // reset button style
+            btnMisi.classList.remove('btn-warning', 'text-white');
+            btnMisi.classList.add('btn-light');
+
+            btnVisi.classList.remove('btn-warning', 'text-white');
+            btnVisi.classList.add('btn-light');
+
+            // show selected tab
+            if (tab === 'misi') {
+                misi.classList.remove('d-none');
+                btnMisi.classList.remove('btn-light');
+                btnMisi.classList.add('btn-warning', 'text-white');
+            } else {
+                visi.classList.remove('d-none');
+                btnVisi.classList.remove('btn-light');
+                btnVisi.classList.add('btn-warning', 'text-white');
+            }
+        }
+    </script>
+@endsection
