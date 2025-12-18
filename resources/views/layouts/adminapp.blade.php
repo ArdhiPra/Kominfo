@@ -10,8 +10,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="{{ asset('assets/img/logo_kominforb.png') }}">
-  <!-- Custom CSS -->
-  <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+  <link href="{{ asset(path: 'css/admin.css') }}" rel="stylesheet">
+  <link href="{{ asset(path: 'css/sidebar.css') }}" rel="stylesheet">
 
   @if (session('success'))
     <meta name="alert-success" content="{{ session('success') }}">

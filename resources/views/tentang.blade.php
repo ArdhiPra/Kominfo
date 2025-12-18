@@ -1,138 +1,130 @@
 @extends('layouts.tentangapp')
 
-@section('title', 'Tentang Kami')
+@section('title', 'Tentang SiPeKa')
 
 @section('content')
 
-<div class="page-wrapper">
-
-    {{-- ================= HERO ================= --}}
     <section class="hero">
-        <h1>Tentang Kami</h1>
+        <h1>Tentang Kami.</h1>
         <p>
             Si Peka hadir sebagai solusi digital untuk mempermudah proses pengelolaan<br>
             peserta, kuota, dan data bidang secara efisien
         </p>
     </section>
 
-    {{-- ================= MAIN CONTENT ================= --}}
-    <div class="container about-content pb-5">
-        <div class="row align-items-start">
+    <!-- CONTENT -->
+    <div class="content-wrapper">
+        <div class="container about-content pb-5">
 
-            {{-- TEXT --}}
-            <div class="col-lg-6">
-                <h2 class="fw-bold">Transformasi Digital PKL</h2>
-                <p class="text-muted">
-                    SiPeKa membantu pengelolaan data peserta PKL di
-                    Dinas Kominfo Kota Denpasar agar lebih rapi,
-                    transparan, dan terstruktur.
-                </p>
+            <!-- ROW UTAMA (TIDAK ADA ROW DI DALAM ROW) -->
+            <div class="row align-items-start">
 
-                <div class="my-3">
-                    <button id="btn-misi"
-                            class="btn btn-warning text-white rounded-pill px-4 me-2"
+                <!-- TEKS -->
+                <div class="col-lg-6 text-left-adjust">
+                    <h2 class="fw-bold">Transformasi Digital untuk Pengelolaan PKL</h2>
+                    <p class="text-muted">
+                        Sipeka adalah aplikasi untuk membantu mengelola data anak PKL di
+                        Dinas Komunikasi, Informatika, dan Statistik Kota Denpasar.
+                        Dengan Sipeka, pengelolaan data menjadi lebih mudah, efisien,
+                        dan terstruktur.
+                    </p>
+
+                    <!-- BUTTON -->
+                    <div class="my-3">
+                        <button id="btn-misi" class="btn btn-warning text-white rounded-pill px-4 me-2"
                             onclick="showTab('misi')">
-                        Misi
-                    </button>
+                            Misi
+                        </button>
 
-                    <button id="btn-visi"
-                            class="btn btn-light rounded-pill px-4"
-                            onclick="showTab('visi')">
-                        Visi
-                    </button>
+                        <button id="btn-visi" class="btn btn-light rounded-pill px-4 me-2" onclick="showTab('visi')">
+                            Visi
+                        </button>
+                    </div>
+
+                    <!-- TAB CONTENT -->
+                    <div id="misi" class="tab-content active">
+                        <p class="visi-misi-text">
+                            Misi kami adalah meningkatkan kemakmuran masyarakat Kota Denpasar
+                            melalui peningkatan kualitas pelayanan pendidikan, kesehatan, dan
+                            pendapatan masyarakat yang berkeadilan. Menjaga stabilitas keamanan
+                            dengan terkendalinya kamtibmas, ketahanan pangan, serta kesiapsiagaan
+                            bencana. Memperkuat reformasi birokrasi menuju tata kelola pemerintahan
+                            yang baik (Good Governance). Unggul dalam kualitas SDM, pemanfaatan
+                            teknologi, dan inovasi berbasis Tri Hita Karana serta kebudayaan Bali.
+                        </p>
+                    </div>
+
+                    <div id="visi" class="tab-content">
+                        <p class="visi-misi-text">
+                            Visi kami adalah menjadi Kota Kreatif Berbasis Budaya Menuju Denpasar Maju.
+                        </p>
+                    </div>
                 </div>
 
-                <div id="misi">
-                    <p>
-                        Meningkatkan kualitas layanan pendidikan,
-                        tata kelola pemerintahan, serta inovasi
-                        berbasis teknologi.
-                    </p>
+                <!-- GAMBAR -->
+                <div class="col-lg-6 text-center mt-4 mt-lg-0 image-shift-right">
+                    <div class="image-sticky">
+                        <img src="{{ asset('assets/img/ikon kominfo.jpg') }}" class="img-fluid illustration-img"
+                            alt="Kominfo">
+                    </div>
                 </div>
 
-                <div id="visi" class="d-none">
-                    <p>
-                        Menjadi sistem PKL modern berbasis budaya & teknologi.
-                    </p>
-                </div>
             </div>
-
-            {{-- IMAGE --}}
-            <div class="col-lg-6 text-center mt-4 mt-lg-0">
-                <div class="image-sticky">
-                    <img src="{{ asset('assets/img/ikon kominfo.jpg') }}"
-                         class="img-fluid illustration-img"
-                         alt="Kominfo Denpasar">
-                </div>
-            </div>
-
         </div>
     </div>
 
-    {{-- ================= FOOTER ================= --}}
-    <footer class="custom-footer">
-        <div class="container py-5">
+    <footer class="custom-footer mt-5">
+        <div class="container-fluid px-5">
+            <div style="height: 50px;"></div>
 
-            {{-- SOCIAL MEDIA --}}
-            <div class="row mb-4">
-                <div class="col text-center">
-                    <a href="https://www.youtube.com/@denpasarkota57" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.tiktok.com/@kominfosdenpasar" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.instagram.com/kominfosdenpasar" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://x.com/DiskominfosBali" target="_blank" class="social-icon"><i class="fab fa-x-twitter"></i></a>
-                    <a href="https://www.kominfostatistik.denpasarkota.go.id/" target="_blank" class="social-icon"><i class="fas fa-globe"></i></a>
-                </div>
-            </div>
 
-            <hr class="footer-divider-custom">
+        <!-- SOCIAL MEDIA -->
+<div class="row py-4">
+    <div class="col text-center">
 
-            {{-- BOTTOM --}}
-            <div class="row align-items-center small text-center text-md-start">
-                <div class="col-md-4 fw-semibold mb-2 mb-md-0">
+        <a href="https://www.youtube.com/" target="_blank" class="social-icon">
+            <i class="fab fa-youtube"></i>
+        </a>
+
+        <a href="https://www.tiktok.com/" target="_blank" class="social-icon">
+            <i class="fab fa-tiktok"></i>
+        </a>
+
+        <a href="https://www.instagram.com/" target="_blank" class="social-icon">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="mailto:email@domain.go.id" class="social-icon">
+            <i class="fas fa-envelope"></i>
+        </a>
+
+        <a href="https://denpasarkota.go.id" target="_blank" class="social-icon">
+            <i class="fas fa-globe"></i>
+        </a>
+
+    </div>
+</div>
+
+            <hr class="border-light opacity-25">
+
+            <!-- BOTTOM -->
+            <div class="row align-items-center py-3 small">
+                <div class="col-md-4 fw-semibold">
                     © 2025 SiPeKa
                 </div>
 
-                <div class="col-md-4 text-center mb-2 mb-md-0">
-                    <a href="#" class="footer-link">Dashboard</a>
-                    <a href="#" class="footer-link">Peserta PKL</a>
-                    <a href="#" class="footer-link">Kuota</a>
-                    <a href="#" class="footer-link">Bidang</a>
+                <div class="col-md-4 text-center">
+                    <a href="#" class="text-white text-decoration-none me-3">Dashboard</a>
+                    <a href="#" class="text-white text-decoration-none me-3">Peserta PKL</a>
+                    <a href="#" class="text-white text-decoration-none me-3">Kuota</a>
+                    <a href="#" class="text-white text-decoration-none">Bidang</a>
                 </div>
 
-                <div class="col-md-4 text-md-end fst-italic opacity-75">
+                <div class="col-md-4 text-md-end text-center mt-2 mt-md-0 opacity-75 fst-italic">
                     Dinas Komunikasi, Informatika, dan Statistik Kota Denpasar
                 </div>
             </div>
 
         </div>
     </footer>
-
-</div>
-
-{{-- ================= SCRIPT ================= --}}
-<script>
-    function showTab(tab) {
-        const misi = document.getElementById('misi');
-        const visi = document.getElementById('visi');
-        const btnMisi = document.getElementById('btn-misi');
-        const btnVisi = document.getElementById('btn-visi');
-
-        misi.classList.add('d-none');
-        visi.classList.add('d-none');
-
-        btnMisi.className = 'btn btn-light rounded-pill px-4 me-2';
-        btnVisi.className = 'btn btn-light rounded-pill px-4';
-
-        if (tab === 'misi') {
-            misi.classList.remove('d-none');
-            btnMisi.classList.replace('btn-light', 'btn-warning');
-            btnMisi.classList.add('text-white');
-        } else {
-            visi.classList.remove('d-none');
-            btnVisi.classList.replace('btn-light', 'btn-warning');
-            btnVisi.classList.add('text-white');
-        }
-    }
-</script>
-
 @endsection

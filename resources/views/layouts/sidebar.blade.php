@@ -177,7 +177,8 @@
       @endauth
 
       <li class="nav-item">
-        <a href="{{ url('/tentang') }}" class="nav-link text-white">
+        <a href="{{ route('tentang') }}"
+          class="nav-link text-white {{ request()->routeIs('tentang') ? 'active' : '' }}">
           <i class="bi bi-info-circle"></i> Tentang
         </a>
       </li>

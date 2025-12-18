@@ -1,23 +1,29 @@
-const buttons = document.querySelectorAll(".tab-btn");
-const contents = document.querySelectorAll(".tab-content");
+function showTab(tab) {
+    const misi = document.getElementById("misi");
+    const visi = document.getElementById("visi");
 
-buttons.forEach((btn) => {
-    btn.addEventListener("click", function () {
-        // reset semua tombol
-        buttons.forEach((b) => {
-            b.classList.remove("btn-warning", "text-white");
-            b.classList.add("btn-light");
-        });
+    const btnMisi = document.getElementById("btn-misi");
+    const btnVisi = document.getElementById("btn-visi");
 
-        // tombol yang aktif
-        this.classList.remove("btn-light");
-        this.classList.add("btn-warning", "text-white");
+    // reset content
+    misi.classList.remove("active");
+    visi.classList.remove("active");
 
-        // sembunyikan semua konten
-        contents.forEach((c) => c.classList.add("d-none"));
+    // reset buttons
+    btnMisi.classList.remove("btn-warning", "text-white");
+    btnMisi.classList.add("btn-light");
 
-        // tampilkan konten sesuai tombol
-        const target = this.getAttribute("data-target");
-        document.getElementById(target).classList.remove("d-none");
-    });
-});
+    btnVisi.classList.remove("btn-warning", "text-white");
+    btnVisi.classList.add("btn-light");
+
+    // activate selected
+    if (tab === "misi") {
+        misi.classList.add("active");
+        btnMisi.classList.remove("btn-light");
+        btnMisi.classList.add("btn-warning", "text-white");
+    } else {
+        visi.classList.add("active");
+        btnVisi.classList.remove("btn-light");
+        btnVisi.classList.add("btn-warning", "text-white");
+    }
+}

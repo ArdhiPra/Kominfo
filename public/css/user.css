@@ -62,18 +62,6 @@ small {
   color: #666;
 }
 
-/* Sidebar Desktop */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh; /* penuh tinggi layar */
-    width: 220px;
-    background-color: #212529;
-    padding: 1rem;
-    overflow-y: auto;
-}
-
 .content {
     margin-left: 240px;
     padding: 1rem;
@@ -85,31 +73,6 @@ small {
         margin-left: 0;
     }
 }
-
-/* Sidebar link */
-.sidebar .nav-link,
-.offcanvas-body .nav-link {
-  color: #ffffff; 
-  transition: all 0.2s ease-in-out;
-  border-radius: 6px;
-  padding: 8px 12px;
-}
-
-/* Hover effect */
-.sidebar .nav-link:hover,
-.offcanvas-body .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* mirip YouTube sidebar */
-  color: #fff;
-  transform: translateX(4px); /* sedikit geser biar hidup */
-}
-
-/* Aktif (optional, kalau mau kasih highlight halaman aktif) */
-.sidebar .nav-link.active,
-.offcanvas-body .nav-link.active {
-  background-color: rgba(255, 255, 255, 0.2);
-  font-weight: 600;
-  color: #fff;  
-}    
 
 .h1{
   font-family:"Roboto",sans-serif;

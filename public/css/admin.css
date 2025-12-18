@@ -1,174 +1,144 @@
-/* Gunakan Roboto untuk seluruh body */
-body {
+/* =========================
+   ADMIN CONTENT ONLY
+   ========================= */
+
+.content {
+    margin-left: 250px;
+    padding: 1rem;
     background-color: #f8f9fa;
     font-family: "Roboto", sans-serif;
 }
 
-/* Heading lebih tebal */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: "DM Sans", sans-serif;
-    font-weight: 300;
+/* =========================
+   HEADING (TEGAS & KONSISTEN)
+   ========================= */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
 }
 
-h1 {
-    font-size: clamp(1.5rem, 4vw, 2.5rem) !important; /* 24px → 40px */
-}
-
-h2 {
-    font-size: clamp(1.25rem, 3.5vw, 2rem) !important; /* 20px → 32px */
-}
-
-h3 {
-    font-size: clamp(1.1rem, 3vw, 1.5rem) !important; /* 18px → 24px */
-}
-
-p {
-    font-size: clamp(0.9rem, 2vw, 1.1rem) !important; /* 14px → 18px */
-}
-
-/* Card title */
-.card-title {
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
     font-family: "Roboto", sans-serif;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    font-weight: 700;
 }
 
-/* Progress bar teks */
-.progress-bar {
+/* Skala heading tetap responsif */
+.content h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.content h2 {
+    font-size: clamp(1.25rem, 3.5vw, 2rem);
+}
+
+.content h3 {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+}
+
+/* =========================
+   TEXT
+   ========================= */
+
+.content p {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    font-weight: 400;
+}
+
+.content small {
+    font-weight: 400;
+    color: #666;
+}
+
+/* =========================
+   CARD & UI
+   ========================= */
+
+.content .card-title {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.content .progress-bar {
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     font-size: 14px;
 }
 
-/* Keterangan kecil */
-small {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
-    color: #666;
-}
+/* =========================
+   RESPONSIVE
+   ========================= */
 
-/* Sidebar Desktop */
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh; /* penuh tinggi layar */
-    width: 220px;
-    background-color: #212529;
-    padding: 1rem;
-    overflow-y: auto;
-}
-
-.content {
-    margin-left: 250px;
-    padding: 1rem;
-}
-
-/* Mobile mode: hapus margin kiri */
 @media (max-width: 767.98px) {
     .content {
         margin-left: 0;
     }
 
-    .hide-border-mobile {
+    .content .hide-border-mobile {
         border: none !important;
     }
 }
 
 @media (max-width: 576px) {
-    form .form-label {
+    .content form .form-label {
         font-size: 14px;
         margin-bottom: 4px;
     }
-    form .form-control,
-    form .form-select {
+
+    .content form .form-control,
+    .content form .form-select {
         font-size: 14px;
         padding: 8px 10px;
     }
-    form textarea.form-control {
+
+    .content form textarea.form-control {
         min-height: 80px;
     }
-    .container {
+
+    .content .container {
         padding-left: 1rem;
         padding-right: 1rem;
     }
-    .btn {
+
+    .content .btn {
         font-size: 15px;
         padding: 10px 14px;
     }
 }
 
-/* Biar button logout ikut gaya link */
-.sidebar .nav-link,
-.offcanvas-body .nav-link,
-.sidebar button.nav-link,
-.offcanvas-body button.nav-link {
-    color: #ffffff;
-    transition: all 0.2s ease-in-out;
-    border-radius: 6px;
-    padding: 8px 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    width: 100%; /* biar hover full selebar li */
-    text-align: left; /* biar teks rata kiri */
-    background: transparent;
-    border: none;
-}
+/* =========================
+   SWEET ALERT (GLOBAL SAFE)
+   ========================= */
 
-/* Hover effect untuk link & button */
-.sidebar .nav-link:hover,
-.offcanvas-body .nav-link:hover,
-.sidebar button.nav-link:hover,
-.offcanvas-body button.nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.15) !important;
-    color: #ffffff !important;
-    transform: translateX(4px);
-    cursor: pointer; /* biar terasa bisa diklik */
-}
-
-/* Aktif */
-.sidebar .nav-link.active,
-.offcanvas-body .nav-link.active {
-    background-color: rgba(255, 255, 255, 0.25) !important;
-    font-weight: 600;
-    color: #fff !important;
-}
-
-/* Mobile Sweert Alert */
-/* Ukuran popup lebih kecil */
 .swal-logout-popup {
     width: 280px !important;
     padding: 1rem !important;
     border-radius: 12px !important;
 }
 
-/* Judul lebih kecil biar pas di layar mobile */
 .swal-logout-title {
     font-size: 16px !important;
     font-weight: 600 !important;
 }
 
-/* Tombol confirm lebih kecil */
-.swal-logout-confirm {
-    padding: 6px 12px !important;
-    font-size: 13px !important;
-}
-
-/* Tombol cancel lebih kecil */
+.swal-logout-confirm,
 .swal-logout-cancel {
     padding: 6px 12px !important;
     font-size: 13px !important;
 }
 
+/* =========================
+   UTILITIES
+   ========================= */
+
 .rotate-icon {
     transition: transform 0.2s ease;
-    display: inline-block; /* penting biar transform jalan */
+    display: inline-block;
 }
 
 .rotate-icon.open {
@@ -176,20 +146,24 @@ small {
 }
 
 .collapsing {
-    transition: height 0.2s ease; /* default 0.35s */
+    transition: height 0.2s ease;
 }
 
-/* Tombol Hijau */
+/* =========================
+   BUTTONS
+   ========================= */
+
 .btn-green {
     position: relative;
     overflow: hidden;
     background: linear-gradient(45deg, #28a745, #218838);
     color: #fff;
-    border: 2px solid transparent; /* selalu ada border agar tidak bergeser */
-    border-radius: 0.375rem; /* sama seperti tombol bootstrap */
+    border: 2px solid transparent;
+    border-radius: 0.375rem;
     font-weight: 600;
     transition: all 0.3s ease;
 }
+
 .btn-green:hover {
     background: transparent;
     background-image: linear-gradient(45deg, #28a745, #218838);
@@ -197,11 +171,8 @@ small {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     border-color: #28a745;
-    box-shadow: none;
-    transform: none;
 }
 
-/* Tombol Kuning */
 .btn-yellow {
     position: relative;
     overflow: hidden;
@@ -212,6 +183,7 @@ small {
     font-weight: 600;
     transition: all 0.3s ease;
 }
+
 .btn-yellow:hover {
     background: transparent;
     background-image: linear-gradient(45deg, #ffc107, #e0a800);
@@ -219,6 +191,4 @@ small {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     border-color: #ffc107;
-    box-shadow: none;
-    transform: none;
 }
