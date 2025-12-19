@@ -12,7 +12,7 @@
         <div class="row g-3 mb-3">
             <div class="col-md-6 col-12">
                 <label class="form-label">Nama Lengkap <span class="text-danger">*</span></label>
-                <input type="text" name="nama_lengkap" class="form-control" required>
+                <input type="text" name="nama_lengkap" class="form-control" required value="{{ old('nama_lengkap') }}">
             </div>
             <div class="col-md-6 col-12">
                 <label class="form-label">Asal Instansi</label>
@@ -45,7 +45,7 @@
             </div>
             <div class="col-md-6 col-12">
                 <label class="form-label">Email</label>
-                <input type="email" name="email" class="form-control">
+                <input type="email" name="email" class="form-control" value="{{ old('email') }}">
             </div>
         </div>
 
@@ -66,7 +66,7 @@
 
         <div class="mb-3">
             <label class="form-label">Alamat Domisili</label>
-            <textarea name="alamat_domisili" class="form-control" rows="3" placeholder="Tulis alamat lengkap..."></textarea>
+            <textarea name="alamat_domisili" class="form-control" value="{{ old('alamat_domisili') }}" rows="3" placeholder="Tulis alamat lengkap..."></textarea>
         </div>
 
         <div class="row g-3 mb-3">
@@ -104,9 +104,9 @@
         <div class="mb-3">
             <label class="form-label">Status</label>
             <select name="status" class="form-select">
-                <option value="Aktif" selected>Aktif</option>
-                <option value="Selesai">Selesai</option>
-                <option value="Dikeluarkan">Dikeluarkan</option>
+                <option value="Aktif" {{ old('status') == 'Aktif' ? 'selected' : '' }}>Aktif</option>
+                <option value="Selesai" {{ old('status') == 'Selesai' ? 'selected' : '' }}>Selesai</option>
+                <option value="Diberhentikan" {{ old('status') == 'Diberhentikan' ? 'selected' : '' }}>Diberhentikan</option>
             </select>
         </div>
 

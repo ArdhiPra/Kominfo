@@ -13,14 +13,13 @@
   <link href="{{ asset(path: 'css/admin.css') }}" rel="stylesheet">
   <link href="{{ asset(path: 'css/sidebar.css') }}" rel="stylesheet">
 
+  @if ($errors->any())
+    <meta name="alert-error" content="{{ $errors->first() }}">
+  @endif
   @if (session('success'))
-    <meta name="alert-success" content="{{ session('success') }}">
+    <meta name="alert-success" content="{{ session('alert-  success') }}">
   @endif
-  @if (session('error'))
-    <meta name="alert-error" content="{{ session('error') }}">
-  @endif
-
-</head>
+</head> 
 <body>
   {{-- Sidebar (desktop & mobile) --}}
   @include('layouts.sidebar')

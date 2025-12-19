@@ -57,51 +57,68 @@
     @endguest
 
     @auth
-    <li class="nav-item dashboard-menu">
-      <a href="{{ route('admin.dashboard') }}"
-        class="nav-link text-white d-flex justify-content-between align-items-center {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
-        <span>
-          <i class="bi bi-house"></i> Dashboard
-        </span>
-        <!-- Ikon toggle -->
-        <span class="toggle-dropdown"
+<li class="nav-item dashboard-menu">
+
+  {{-- Parent --}}
+  <a href="{{ route('admin.dashboard') }}"
+     class="nav-link text-white d-flex justify-content-between align-items-center
+     {{ request()->routeIs('admin.dashboard*') ? 'active' : '' }}">
+
+    <span>
+      <i class="bi bi-house"></i> Dashboard
+    </span>
+
+    <span class="toggle-dropdown"
           data-bs-toggle="collapse"
           data-bs-target="#dashboardCollapse"
-          aria-expanded="{{ request()->routeIs('admin.dashboard.edit') ? 'true' : 'false' }}"
-          aria-controls="dashboardCollapse"
+          aria-expanded="{{ request()->routeIs('admin.*') ? 'true' : 'false' }}"
           onclick="event.preventDefault();">
-            <i class="bi bi-chevron-right rotate-icon 
-            {{ request()->routeIs('tentang') || request()->routeIs('admin.dashboard.edit') ? 'rotate' : '' }}">
-          </i>
-        </span>
-      </a>
+      <i class="bi bi-chevron-right rotate-icon
+      {{ request()->routeIs('admin.*') ? 'open' : '' }}"></i>
+    </span>
 
-  <!-- Submenu -->
-  <div class="collapse {{ request()->routeIs('admin.dashboard.edit') ? 'show' : '' }}" id="dashboardCollapse">
+  </a>
+
+  {{-- Submenu --}}
+  <div class="collapse {{ request()->routeIs('admin.*') ? 'show' : '' }}" id="dashboardCollapse">
     <ul class="nav flex-column ms-4">
+
       <li class="nav-item">
-        <a href="{{ route('admin.dashboard.edit') }}"
-            class="nav-link text-white {{ request()->routeIs('admin.dashboard.edit') ? 'active' : '' }}">
-          <i class="bi bi-pencil-square"></i> Edit Dashboard
+        <a href="{{ route('admin.magang.create') }}"
+           class="nav-link text-white {{ request()->routeIs('admin.magang.create') ? 'active' : '' }}">
+          <i class="bi bi-plus-circle"></i> Tambah Data
         </a>
       </li>
+
+      <li class="nav-item">
+        <a href="{{ route('admin.edit.index') }}"
+           class="nav-link text-white {{ request()->routeIs('admin.edit.index') ? 'active' : '' }}">
+          <i class="bi bi-pencil-square"></i> Edit Data
+        </a>
+      </li>
+
     </ul>
   </div>
-</li>
-    @endauth
 
+</li>
+@endauth
+
+    @guest
     <li class="nav-item">
       <a href="{{ route('tentang') }}"
         class="nav-link text-white {{ request()->routeIs('tentang') ? 'active' : '' }}">
         <i class="bi bi-info-circle"></i> Tentang
       </a>
     </li>
+    @endguest
 
+    @guest
     <li class="nav-item">
       <a href="{{ url('/kontak') }}" class="nav-link text-white">
         <i class="bi bi-telephone"></i> Kontak
       </a>
     </li>
+    @endguest
 
     @guest
       <li class="nav-item">
@@ -113,17 +130,19 @@
 
     @auth
       <li class="nav-item">
-        <form id="logoutForm" action="{{ route('logout') }}" method="POST" class="d-inline w-100">
+        <a href="#"
+          class="nav-link text-white logout-trigger">
+          <i class="bi bi-box-arrow-in-left"></i> Logout
+        </a>
+
+        <form action="{{ route('logout') }}" method="POST" class="logout-form d-none">
           @csrf
-          <button type="submit" id="logoutButton"
-            class="nav-link text-white border-0 bg-transparent w-100 text-start">
-            <i class="bi bi-box-arrow-in-left"></i> Logout
-          </button>
         </form>
       </li>
     @endauth
 </ul>
 </div>
+
 
 {{-- Sidebar Mobile (Offcanvas) --}}
 <div class="offcanvas offcanvas-start bg-dark text-white d-md-none" tabindex="-1" id="offcanvasSidebar">
@@ -149,45 +168,68 @@
 
       {{-- Jika user sudah login --}}
       @auth
-        <li class="nav-item dashboard-menu">
-          <a href="{{ route('admin.dashboard') }}"
-              class="nav-link text-white d-flex justify-content-between align-items-center {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
-            <span><i class="bi bi-house"></i> Dashboard</span>
-            <span class="toggle-dropdown"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#dashboardCollapseMobile"
-                  aria-expanded="{{ request()->routeIs('admin.dashboard.edit') ? 'true' : 'false' }}"
-                  aria-controls="dashboardCollapseMobile"
-                  onclick="event.preventDefault();">
-              <i class="bi bi-chevron-right rotate-icon {{ request()->routeIs('admin.dashboard.edit') ? 'open' : '' }}"></i>
-            </span>
-          </a>
-          <!-- Submenu mobile -->
-          <div class="collapse {{ request()->routeIs('admin.dashboard.edit') ? 'show' : '' }}" id="dashboardCollapseMobile">
-            <ul class="nav flex-column ms-4">
-              <li class="nav-item">
-                <a href="{{ route('admin.dashboard.edit') }}"
-                    class="nav-link text-white {{ request()->routeIs('admin.dashboard.edit') ? 'active' : '' }}">
-                  <i class="bi bi-pencil-square"></i> Edit Dashboard
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-      @endauth
+<li class="nav-item dashboard-menu">
 
+  {{-- Parent --}}
+  <a href="{{ route('admin.dashboard') }}"
+     class="nav-link text-white d-flex justify-content-between align-items-center
+     {{ request()->routeIs('admin.dashboard*') ? 'active' : '' }}">
+
+    <span>
+      <i class="bi bi-house"></i> Dashboard
+    </span>
+
+    <span class="toggle-dropdown"
+          data-bs-toggle="collapse"
+          data-bs-target="#dashboardCollapse"
+          aria-expanded="{{ request()->routeIs('admin.*') ? 'true' : 'false' }}"
+          onclick="event.preventDefault();">
+      <i class="bi bi-chevron-right rotate-icon
+      {{ request()->routeIs('admin.*') ? 'open' : '' }}"></i>
+    </span>
+
+  </a>
+
+  {{-- Submenu --}}
+  <div class="collapse {{ request()->routeIs('admin.*') ? 'show' : '' }}" id="dashboardCollapse">
+    <ul class="nav flex-column ms-4">
+
+      <li class="nav-item">
+        <a href="{{ route('admin.magang.create') }}"
+           class="nav-link text-white {{ request()->routeIs('admin.magang.create') ? 'active' : '' }}">
+          <i class="bi bi-plus-circle"></i> Tambah Data
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="{{ route('admin.edit.index') }}"
+           class="nav-link text-white {{ request()->routeIs('admin.edit.index') ? 'active' : '' }}">
+          <i class="bi bi-pencil-square"></i> Edit Data
+        </a>
+      </li>
+
+    </ul>
+  </div>
+
+</li>
+@endauth
+
+      @guest
       <li class="nav-item">
         <a href="{{ route('tentang') }}"
           class="nav-link text-white {{ request()->routeIs('tentang') ? 'active' : '' }}">
           <i class="bi bi-info-circle"></i> Tentang
         </a>
       </li>
+      @endguest
 
+      @guest
       <li class="nav-item">
         <a href="{{ url('/kontak') }}" class="nav-link text-white">
           <i class="bi bi-telephone"></i> Kontak
         </a>
       </li>
+      @endguest
 
         @guest
         <li class="nav-item">
@@ -198,13 +240,13 @@
       @endguest
 
       @auth
-        <li class="nav-item">
-          <form id="logoutFormMobile" action="{{ route('logout') }}" method="POST" class="d-inline w-100">
+         <li class="nav-item">
+          <a href="#"
+            class="nav-link text-white logout-trigger">
+            <i class="bi bi-box-arrow-in-left"></i> Logout
+          </a>
+          <form action="{{ route('logout') }}" method="POST" class="logout-form d-none">
             @csrf
-            <button type="submit" id="logoutButtonMobile"
-              class="nav-link text-white border-0 bg-transparent w-100 text-start">
-              <i class="bi bi-box-arrow-in-left"></i> Logout
-            </button>
           </form>
         </li>
       @endauth

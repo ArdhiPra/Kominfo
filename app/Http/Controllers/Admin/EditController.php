@@ -82,7 +82,11 @@ class EditController extends Controller
         'unit_penempatan'     => 'nullable|exists:tbl_bidang,id',
         'pembimbing_instansi' => 'nullable|string|max:150',
         'pembimbing_lapangan' => 'nullable|string|max:150',
-        'status'              => 'required|in:Aktif,Selesai,Dikeluarkan',
+        'status'              => 'required|in:Aktif,Selesai,Diberhentikan',
+    ],
+    [
+        'nomor_induk.unique' => 'NIM sudah terdaftar, silakan gunakan NIM lain.',
+        'nomor_induk.digits_between' => 'NIM harus berupa angka minimal 5 digit.',
     ]);
 
     $magang->update($validated);
@@ -98,8 +102,6 @@ public function destroy($id)
 {
     $magang = Magang::findOrFail($id);
     $magang->delete();
-
-    $filters = session('edit_filters', []);
 
     return redirect()
     ->to(url()->previous())
