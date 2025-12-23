@@ -4,109 +4,164 @@
 
 @section('content')
 
-<div class="container mt-4">
+<style>
+    .profile-card {
+        background: #fff;
+        border-radius: 14px;
+        padding: 24px;
+    }
 
-<h2 class="mb-4 fw-semibold">Profil Mahasiswa</h2>
+    .profile-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #111827;
+    }
 
-<table class="table table-bordered table-striped">
-    <tbody>
+    .profile-section {
+        margin-top: 24px;
+    }
 
-        <tr>
-            <td width="20%">Nama Lengkap</td>
-            <td width="2%">:</td>
-            <td>{{ $mahasiswa->nama_lengkap }}</td>
-        </tr>
+    .profile-section h6 {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 16px;
+    }
 
-        <tr>
-            <td>Nomor Induk</td>
-            <td>:</td>
-            <td>{{ $mahasiswa->nomor_induk ?? '-' }}</td>
-        </tr>
+    .form-label {
+        font-size: 0.75rem;
+        color: #6b7280;
+        margin-bottom: 4px;
+    }
 
-        <tr>
-            <td>Asal Instansi</td>
-            <td>:</td>
-            <td>{{ $mahasiswa->asal_instansi ?? '-' }}</td>
-        </tr>
+    .form-control[readonly] {
+        background-color: #f9fafb;
+        border: 1px solid #e5e7eb;
+        font-size: 0.85rem;
+        border-radius: 8px;
+    }
+</style>
 
-        <tr>
-            <td>Program Studi</td>
-            <td>:</td>
-            <td>{{ $mahasiswa->program_studi ?? '-' }}</td>
-        </tr>
+<div class="container my-4">
 
-        <tr>
-            <td>Tingkat</td>
-            <td>:</td>
-            <td>{{ $mahasiswa->tingkat ?? '-' }}</td>
-        </tr>
+    <div class="profile-card shadow-sm">
 
-        <tr>
-            <td>Email</td>
-            <td>:</td>
-            <td>{{ $mahasiswa->email ?? '-' }}</td>
-        </tr>
+        <div class="profile-title mb-3">
+            Profil Mahasiswa
+        </div>
 
-        <tr>
-            <td>No Handphone</td>
-            <td>:</td>
-            <td>{{ $mahasiswa->no_hp ?? '-' }}</td>
-        </tr>
+        {{-- DATA PRIBADI --}}
+        <div class="profile-section">
+            <h6>Informasi Pribadi</h6>
 
-        <tr>
-            <td>Alamat Domisili</td>
-            <td>:</td>
-            <td>{{ $mahasiswa->alamat_domisili ?? '-' }}</td>
-        </tr>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label">Nama Lengkap</label>
+                    <input type="text" class="form-control" value="{{ $mahasiswa->nama_lengkap }}" readonly>
+                </div>
 
-        <tr>
-            <td>Tanggal Mulai</td>
-            <td>:</td>
-            <td>{{ $mahasiswa->tanggal_mulai->format('d-m-Y') }}
-        </tr>
+                <div class="col-md-6">
+                    <label class="form-label">Nomor Induk</label>
+                    <input type="text" class="form-control" value="{{ $mahasiswa->nomor_induk ?? '-' }}" readonly>
+                </div>
 
-        <tr>
-            <td>Tanggal Selesai</td>
-            <td>:</td>
-            <td>{{ $mahasiswa->tanggal_selesai->format('d-m-Y') }}
-        </tr>
+                <div class="col-md-6">
+                    <label class="form-label">Email</label>
+                    <input type="text" class="form-control" value="{{ $mahasiswa->email ?? '-' }}" readonly>
+                </div>
 
-        <tr>
-            <td>Unit Penempatan</td>
-            <td>:</td>
-            <td>{{ $mahasiswa->bidang->nama_bidang ?? '-' }}</td>
-        </tr>
+                <div class="col-md-6">
+                    <label class="form-label">No Handphone</label>
+                    <input type="text" class="form-control" value="{{ $mahasiswa->no_hp ?? '-' }}" readonly>
+                </div>
 
-        <tr>
-            <td>Pembimbing Instansi</td>
-            <td>:</td>
-            <td>{{ $mahasiswa->pembimbing_instansi ?? '-' }}</td>
-        </tr>
+                <div class="col-md-12">
+                    <label class="form-label">Alamat Domisili</label>
+                    <input type="text" class="form-control" value="{{ $mahasiswa->alamat_domisili ?? '-' }}" readonly>
+                </div>
+            </div>
+        </div>
 
-        <tr>
-            <td>Pembimbing Lapangan</td>
-            <td>:</td>
-            <td>{{ $mahasiswa->pembimbing_lapangan ?? '-' }}</td>
-        </tr>
+        {{-- DATA AKADEMIK --}}
+        <div class="profile-section">
+            <h6>Informasi Akademik</h6>
 
-        <tr>
-            <td>Status</td>
-            <td>:</td>
-            <td>
-                @if($mahasiswa->status == 'Aktif')
-                    <span class="badge bg-success">Aktif</span>
-                @elseif($mahasiswa->status == 'Selesai')
-                    <span class="badge bg-info text-dark">Selesai</span>
-                @else
-                    <span class="badge bg-danger">Dikeluarkan</span>
-                @endif
-            </td>
-        </tr>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label">Asal Instansi</label>
+                    <input type="text" class="form-control" value="{{ $mahasiswa->asal_instansi ?? '-' }}" readonly>
+                </div>
 
-    </tbody>
-</table>
+                <div class="col-md-6">
+                    <label class="form-label">Program Studi</label>
+                    <input type="text" class="form-control" value="{{ $mahasiswa->program_studi ?? '-' }}" readonly>
+                </div>
 
-<a href="{{ url()->previous() }}" class="btn btn-secondary mt-3">Kembali</a>
+                <div class="col-md-6">
+                    <label class="form-label">Tingkat</label>
+                    <input type="text" class="form-control" value="{{ $mahasiswa->tingkat ?? '-' }}" readonly>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Unit Penempatan</label>
+                    <input type="text" class="form-control" value="{{ $mahasiswa->bidang->nama_bidang ?? '-' }}" readonly>
+                </div>
+            </div>
+        </div>
+
+        {{-- DATA MAGANG --}}
+        <div class="profile-section">
+            <h6>Informasi Magang</h6>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label class="form-label">Tanggal Mulai</label>
+                    <input type="text" class="form-control"
+                           value="{{ $mahasiswa->tanggal_mulai->format('d-m-Y') }}" readonly>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Tanggal Selesai</label>
+                    <input type="text" class="form-control"
+                           value="{{ $mahasiswa->tanggal_selesai->format('d-m-Y') }}" readonly>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Pembimbing Instansi</label>
+                    <input type="text" class="form-control"
+                           value="{{ $mahasiswa->pembimbing_instansi ?? '-' }}" readonly>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Pembimbing Lapangan</label>
+                    <input type="text" class="form-control"
+                           value="{{ $mahasiswa->pembimbing_lapangan ?? '-' }}" readonly>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Status</label>
+                    <div class="pt-1">
+                        @if($mahasiswa->status == 'Aktif')
+                            <span class="badge bg-success">Aktif</span>
+                        @elseif($mahasiswa->status == 'Selesai')
+                            <span class="badge bg-info text-dark">Selesai</span>
+                        @else
+                            <span class="badge bg-danger">Dikeluarkan</span>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- BUTTON --}}
+        <div class="d-flex justify-content-end mt-4">
+            <a href="{{ url()->previous() }}" class="btn btn-secondary px-4">
+                Kembali
+            </a>
+        </div>
+
+    </div>
 
 </div>
+
 @endsection

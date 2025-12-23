@@ -78,32 +78,33 @@
             <div style="height: 50px;"></div>
 
 
-        <!-- SOCIAL MEDIA -->
-<div class="row py-4">
-    <div class="col text-center">
+            <!-- SOCIAL MEDIA -->
+            <div class="row py-4">
+                <div class="col text-center">
 
-        <a href="https://www.youtube.com/" target="_blank" class="social-icon">
-            <i class="fab fa-youtube"></i>
-        </a>
+                    <a href="https://www.youtube.com/@denpasarkota57" target="_blank" class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </a>
 
-        <a href="https://www.tiktok.com/" target="_blank" class="social-icon">
-            <i class="fab fa-tiktok"></i>
-        </a>
+                    <a href="https://www.tiktok.com/@kominfosdenpasar" target="_blank" class="social-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
 
-        <a href="https://www.instagram.com/" target="_blank" class="social-icon">
-            <i class="fab fa-instagram"></i>
-        </a>
+                    <a href="https://www.instagram.com/kominfosdenpasar?igsh=OHBoN2ZtMXloaDFh" target="_blank"
+                        class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
 
-        <a href="mailto:email@domain.go.id" class="social-icon">
-            <i class="fas fa-envelope"></i>
-        </a>
+                    <a href="https://x.com/DiskominfosBali" target="_blank" class="social-icon">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
 
-        <a href="https://denpasarkota.go.id" target="_blank" class="social-icon">
-            <i class="fas fa-globe"></i>
-        </a>
+                    <a href="https://denpasarkota.go.id" target="_blank" class="social-icon">
+                        <i class="fas fa-globe"></i>
+                    </a>
 
-    </div>
-</div>
+                </div>
+            </div>
 
             <hr class="border-light opacity-25">
 
