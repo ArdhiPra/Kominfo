@@ -140,7 +140,7 @@
                         <option value="">Semua Status</option>
                         <option value="Aktif" {{ request('status') == 'Aktif' ? 'selected' : '' }}>Aktif</option>
                         <option value="Selesai" {{ request('status') == 'Selesai' ? 'selected' : '' }}>Selesai</option>
-                        <option value="Dikeluarkan" {{ request('status') == 'Dikeluarkan' ? 'selected' : '' }}>Dikeluarkan</option>
+                        <option value="Diberhentikan" {{ request('status') == 'Diberhentikan' ? 'selected' : '' }}>Diberhentikan</option>
                     </select>
                 </div>
 
@@ -190,7 +190,7 @@
                                 @elseif($m->status == 'Selesai')
                                     <span class="status-pill status-finish">Selesai</span>
                                 @else
-                                    <span class="status-pill status-danger">Dikeluarkan</span>
+                                    <span class="status-pill status-danger">Diberhentikan</span>
                                 @endif
                             </td>
                             <td>

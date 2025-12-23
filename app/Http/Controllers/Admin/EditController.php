@@ -16,10 +16,7 @@ class EditController extends Controller
 {
     $bidang = Bidang::all();
 
-    // ambil filter dari request
     $filters = $request->only(['bidang', 'status']);
-
-    // simpan ke session (agar bisa dipakai setelah update)
     session(['edit_filters' => $filters]);
 
     $query = Magang::with('bidang');
@@ -29,19 +26,15 @@ class EditController extends Controller
         $query->where('unit_penempatan', $filters['bidang']);
     }
 
-    // Filter status (default Aktif)
+    // Filter status (HANYA jika dipilih)
     if (!empty($filters['status'])) {
         $query->where('status', $filters['status']);
-    } else {
-        $query->where('status', 'Aktif');
     }
 
     $magang = $query->get();
 
     return view('admin.edit-index', compact('magang', 'bidang', 'filters'));
 }
-
-
 
     /**
      * Form edit mahasiswa magang
