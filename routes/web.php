@@ -42,7 +42,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/edit', [EditController::class, 'index'])->name('admin.edit.index'); // halaman daftar mahasiswa
     Route::get('/admin/edit/{id}', [EditController::class, 'edit'])->name('admin.edit.form'); // form edit
     Route::put('/admin/edit/{id}', [EditController::class, 'update'])->name('admin.edit.update'); // simpan perubahan
-    
+    Route::delete('/admin/edit/{id}', [EditController::class, 'destroy'])->name('admin.edit.destroy'); // hapus data
+
+
     // Bidang
     Route::get('/admin/sekretariat', [BidangController::class, 'sekretariat'])->name('admin.sekretariat');
     Route::get('/admin/persandian', [BidangController::class, 'persandian'])->name('admin.persandian');

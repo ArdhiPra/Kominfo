@@ -13,45 +13,50 @@ class EditController extends Controller
      * Halaman awal edit - daftar mahasiswa magang
      */
     public function index(Request $request)
-    {
+{
     $bidang = Bidang::all();
+
+    // ambil filter dari request
+    $filters = $request->only(['bidang', 'status']);
+
+    // simpan ke session (agar bisa dipakai setelah update)
+    session(['edit_filters' => $filters]);
 
     $query = Magang::with('bidang');
 
     // Filter bidang
-    if ($request->filled('bidang')) {
-        $query->where('unit_penempatan', $request->bidang);
+    if (!empty($filters['bidang'])) {
+        $query->where('unit_penempatan', $filters['bidang']);
     }
 
-    // Filter asal instansi
-    if ($request->filled('asal_instansi')) {
-        $query->where('asal_instansi', 'like', '%' . $request->asal_instansi . '%');
-    }
-
-    // Status default = Aktif
-    if ($request->filled('status')) {
-        $query->where('status', $request->status);
+    // Filter status (default Aktif)
+    if (!empty($filters['status'])) {
+        $query->where('status', $filters['status']);
     } else {
-        // default
         $query->where('status', 'Aktif');
     }
 
     $magang = $query->get();
 
-    return view('admin.edit-index', compact('magang', 'bidang'));
-    }
+    return view('admin.edit-index', compact('magang', 'bidang', 'filters'));
+}
+
 
 
     /**
      * Form edit mahasiswa magang
      */
     public function edit($id)
-    {
-        $magang = Magang::findOrFail($id);
-        $bidang = Bidang::all();
+{
+    $magang = Magang::findOrFail($id);
+    $bidang = Bidang::all();
 
-        return view('admin.edit-form', compact('magang', 'bidang'));
-    }
+    // ambil filter dari session
+    $filters = session('edit_filters', []);
+
+    return view('admin.edit-form', compact('magang', 'bidang', 'filters'));
+}
+
 
     /**
      * Proses update data mahasiswa magang
@@ -77,31 +82,29 @@ class EditController extends Controller
         'unit_penempatan'     => 'nullable|exists:tbl_bidang,id',
         'pembimbing_instansi' => 'nullable|string|max:150',
         'pembimbing_lapangan' => 'nullable|string|max:150',
-        'status'              => 'required|in:Aktif,Selesai,Dikeluarkan',
+        'status'              => 'required|in:Aktif,Selesai,Diberhentikan',
+    ],
+    [
+        'nomor_induk.unique' => 'NIM sudah terdaftar, silakan gunakan NIM lain.',
+        'nomor_induk.digits_between' => 'NIM harus berupa angka minimal 5 digit.',
     ]);
 
-    try {
-        // Update data
-        $magang->update($validated);
+    $magang->update($validated);
 
-        // Tambahkan log untuk memastikan eksekusi sampai sini
-        \Log::info('Data magang diperbarui', [
-            'id' => $id,
-            'nama' => $validated['nama_lengkap'] ?? 'N/A'
-        ]);
+    // ambil filter dari session
+    $filters = session('edit_filters', []);
 
-        // Redirect sukses
-        return redirect()
-            ->route('admin.edit.index')
-            ->with('success', 'Data magang berhasil diperbarui!');
-    } catch (\Throwable $e) {
-        // Jika ada error (contoh: nama kolom salah)
-        \Log::error('Gagal update data magang', [
-            'error' => $e->getMessage(),
-            'id' => $id
-        ]);
-
-        return back()->withErrors(['msg' => 'Terjadi kesalahan saat memperbarui data: ' . $e->getMessage()]);
-        }
+    return redirect()
+        ->route('admin.edit.index', $filters)
+        ->with('success', 'Data magang berhasil diperbarui!');
     }
+public function destroy($id)
+{
+    $magang = Magang::findOrFail($id);
+    $magang->delete();
+
+    return redirect()
+    ->to(url()->previous())
+    ->with('success', 'Data berhasil dihapus');
+}
 }

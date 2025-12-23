@@ -165,6 +165,7 @@
                         <th>Asal Instansi</th>
                         <th>Bidang</th>
                         <th>Status</th>
+                        <th width="12%">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -192,6 +193,26 @@
                                     <span class="status-pill status-danger">Dikeluarkan</span>
                                 @endif
                             </td>
+                            <td>
+                        <div class="d-flex gap-2">
+                            <!-- Edit -->
+                            <a href="{{ route('admin.edit.form', $m->id) }}"
+                            class="btn btn-sm btn-warning">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+
+                            <!-- Hapus -->
+                            <form action="{{ route('admin.edit.destroy', $m->id) }}"
+                                method="POST"
+                                class="form-delete">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </td>
                         </tr>
                     @empty
                         <tr>
@@ -204,6 +225,5 @@
             </table>
         </div>
     </div>
-
 </div>
 @endsection
