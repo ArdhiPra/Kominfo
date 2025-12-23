@@ -111,12 +111,12 @@
             <select name="status" class="form-select">
                 <option value="Aktif" {{ $magang->status == 'Aktif' ? 'selected' : '' }}>Aktif</option>
                 <option value="Selesai" {{ $magang->status == 'Selesai' ? 'selected' : '' }}>Selesai</option>
-                <option value="Dikeluarkan" {{ $magang->status == 'Dikeluarkan' ? 'selected' : '' }}>Dikeluarkan</option>
+                <option value="Diberhentikan" {{ $magang->status == 'Diberhentikan' ? 'selected' : '' }}>Diberhentikan</option>
             </select>
         </div>
 
         <div class="d-flex justify-content-end gap-2 mt-4">
-            <button type="submit" class="btn btn-primary">💾 Simpan Perubahan</button>
+            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
             <a href="{{ route('admin.edit.index') }}" class="btn btn-danger">Batal</a>
         </div>
     </form>

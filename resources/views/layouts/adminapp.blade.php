@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,8 @@
   <link rel="icon" type="image/png" href="{{ asset('assets/img/logo_kominforb.png') }}">
   <link href="{{ asset(path: 'css/admin.css') }}" rel="stylesheet">
   <link href="{{ asset(path: 'css/sidebar.css') }}" rel="stylesheet">
+  <link href="{{ asset(path: 'css/bidang.css') }}" rel="stylesheet">
+  <link href="{{ asset(path: 'css/editindex.css') }}" rel="stylesheet">
 
   @if ($errors->any())
     <meta name="alert-error" content="{{ $errors->first() }}">
@@ -19,7 +22,8 @@
   @if (session('success'))
     <meta name="alert-success" content="{{ session('alert-  success') }}">
   @endif
-</head> 
+</head>
+
 <body>
   {{-- Sidebar (desktop & mobile) --}}
   @include('layouts.sidebar')
@@ -42,4 +46,5 @@
   <script src="{{ asset('js/notifikasi.js') }}"></script>
   <script src="{{ asset('js/edit-notifikasi.js') }}"></script>
 </body>
+
 </html>
