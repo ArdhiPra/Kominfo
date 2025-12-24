@@ -19,8 +19,8 @@
   @if ($errors->any())
     <meta name="alert-error" content="{{ $errors->first() }}">
   @endif
-  @if (session('success'))
-    <meta name="alert-success" content="{{ session('alert-  success') }}">
+  @if (session('alert-success'))
+    <meta name="alert-success" content="{{ session('alert-success') }}">
   @endif
 </head>
 

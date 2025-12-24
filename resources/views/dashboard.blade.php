@@ -6,7 +6,7 @@
     <div class="container-fluid my-4 ps-md-4">
 
         <div class="page-header">
-            <h2>Dashboard user</h2>
+            <h2>Dashboard</h2>
         </div>
 
         {{-- ======================== --}}
